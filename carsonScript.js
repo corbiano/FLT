@@ -143,6 +143,12 @@ $(`#Frontline_TechnicalTroubleshootingNotes`).parent().parent().find(`.sectionti
 <button type="submit" class="templatebutton" onclick="getAssets()">Run Tools</button>
 
 `);
+
+$(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).append(`
+
+<button type="submit" class="templatebutton" id="noteButton" onclick="addStartText()">Begin</button>
+	
+`);
     
 
     try {
@@ -1308,14 +1314,19 @@ The information in this section will be saved automatically and restored when lo
 
     function addStartText(){
 
-	document.getElementById("Frontline_InteractionDetails").value = `case came in  in  status
+	if(document.getElementById("Frontline_InteractionDetails").value == null){
+		document.getElementById("Frontline_InteractionDetails").value = `case came in  in  status
 creating working case
 opening customer KB: 
 running tools to verify site status
 `;
-	document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
-	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
-	    
+		document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
+		document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
+	} else {
+
+		console.log("im too full!")
+		
+	}
     }
 
     function styleTemp(){

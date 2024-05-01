@@ -150,7 +150,11 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
 <button type="submit" class="templatebutton" id="noteButton" onclick="beginInteraction()">Begin</button>
 	
 `);
+$(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).append(`
 
+<button type="submit" class="templatebutton" id="testButton" onclick="customTimeStamp()">timestamp</button>
+	
+`);
     
 
     try {
@@ -1383,7 +1387,45 @@ The information in this section will be saved automatically and restored when lo
 	}
     }
 
+    function customTimeStamp(){
 
+	  var today = new Date();
+          var h = today.getHours() + comodin;
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          var dt;
+          if(h > 11){ 
+            if(h > 12){h = h - 12;}
+            dt = "PM";
+          }
+          else{dt = "AM";}
+          if(h < 10){ h = "0" + h;}
+          if(m < 10){ m = "0" + m;}
+          //if(s < 10){ s = "0" + s;}
+          //dt = "[" + h + ":" + m + ":" + s + " " + dt + "] ";
+          dt = "[" + h + ":" + m  + " " + dt + "] ";
+          var txtarea = document.getElementById(group + "_InteractionDetails");
+          var scrollPos = txtarea.scrollTop;
+          var strPos = 0;
+          strPos = txtarea.selectionStart;          
+          var front;
+          if (strPos != 0){front = (txtarea.value).substring(0,strPos);}else{ front = "";}          
+          var back = (txtarea.value).substring(strPos,txtarea.value.length);
+          if( document.getElementById(group + "_InteractionDetails").value != ""){			
+            txtarea.value = front + "\n" + dt + back;
+          }else{
+
+            txtarea.value = dt + back;
+          }
+          strPos = strPos + dt.length + 1;
+          txtarea.selectionStart = strPos;
+          txtarea.selectionEnd = strPos;
+          txtarea.focus();	
+          txtarea.scrollTop = scrollPos;
+	  document.getElementById(group + "_InteractionDetails").scrollTop = 1000000;
+
+	    
+    }
 	
     function styleTemp(){
 	

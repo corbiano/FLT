@@ -1306,6 +1306,18 @@ The information in this section will be saved automatically and restored when lo
         localStorage.setItem("StickyNotes", $(tempNotes)[0].value);
     });
 
+    function addStartText(){
+
+	document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
+	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
+	document.getElementById("Frontline_BackgroundInfo").value = `case came in  in  status
+creating working case
+opening customer KB: 
+running tools to verify site status
+`;
+	    
+    }
+
     function styleTemp(){
 	
 	$("body").css("background-image", "linear-gradient(45deg, #1c1c1c, #1c1c1c)");
@@ -1347,6 +1359,7 @@ The information in this section will be saved automatically and restored when lo
 	document.querySelector(':root').style.setProperty("--color-0I", "#855672");
 	document.querySelector(':root').style.setProperty("--color-0J", "#FFFFFF");
 	document.querySelector(':root').style.setProperty("--color-0K", "#FFFFFF");
+	
 	
 	
     }

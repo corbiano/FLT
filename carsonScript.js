@@ -1339,6 +1339,7 @@ The information in this section will be saved automatically and restored when lo
 	$('.SubTemplateIcon').css("color", "#ffffff");
 	$('.ResourceIcon').css("color", "#ffffff");
 	$('.templatebutton').css("padding", "0px 5px 0px 5px");
+	$('.fieldformtext').css("padding", "0px 5px 0px 5px");
 	document.querySelector(':root').style.setProperty("--color-13", "#1c1c1c");
 	document.querySelector(':root').style.setProperty("--color-0B", "#fff");
 	document.querySelector(':root').style.setProperty("--color-0C", "#FFFFFF");
@@ -1350,3 +1351,4 @@ The information in this section will be saved automatically and restored when lo
 	
     }
 }
+styleTemp()

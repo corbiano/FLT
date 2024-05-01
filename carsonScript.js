@@ -1340,16 +1340,16 @@ The information in this section will be saved automatically and restored when lo
 		
 	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `case came in  in  status
+		document.getElementById("Frontline_InteractionDetails").value += `case came in  in  status
   `;
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `creating working case
+		document.getElementById("Frontline_InteractionDetails").value += `creating working case
   `;
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `opening customer KB: 
+		document.getElementById("Frontline_InteractionDetails").value += `opening customer KB: 
   `;
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `running tools to verify site status
+		document.getElementById("Frontline_InteractionDetails").value += `running tools to verify site status
   `;
 	} else {
 
@@ -1364,16 +1364,16 @@ The information in this section will be saved automatically and restored when lo
 		
 	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += ` called in from  in ref to case # 
+		document.getElementById("Frontline_InteractionDetails").value += ` called in from  in ref to case # 
   `;
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `creating working case
+		document.getElementById("Frontline_InteractionDetails").value += `creating working case
   `;
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `opening customer KB: 
+		document.getElementById("Frontline_InteractionDetails").value += `opening customer KB: 
   `;
 		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `running tools to verify site status
+		document.getElementById("Frontline_InteractionDetails").value += `running tools to verify site status
   `;
 	} else {
 

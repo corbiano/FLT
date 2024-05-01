@@ -1319,50 +1319,71 @@ The information in this section will be saved automatically and restored when lo
 	interactionType = document.getElementById("Frontline_TaskType").value;
 	if(interactionType.includes(`Call`)){
 
-		console.log("call notes");
+		gabagoolCall();
 		
 	} else if(interactionType.includes(`Case`)){
 
-		console.log("case notes");
-		
-	} else {
-
-		console.log("no typer selected, default to case?");
-		
-	}
-	
-	
-	
-    }
-
-
-	
-    function addStartTextCase(){
-
-	if(document.getElementById("Frontline_InteractionDetails").value == ``){
 		gabagoolCase();
-		document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
-		document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
+		
+	} else {
+
+		gabagoolCase();
+		
+	}
+	
+    }
+
+
+    function gabagoolCase(){
+	document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
+	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
+		
+	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `case came in  in  status
+  `;
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `creating working case
+  `;
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `opening customer KB: 
+  `;
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `running tools to verify site status
+  `;
 	} else {
 
 		console.log("im too full!");
-		
+			
 	}
     }
 
-    function addStartTextCall(){
-
-	if(document.getElementById("Frontline_InteractionDetails").value == ``){
-		gabagoolCall();
-		document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
-		document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
+    function gabagoolCall(){
+	document.getElementById("Frontline_BackgroundInfo").value = " called in from  in ref to case #  explaining ";
+	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
+		
+	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += ` called in from  in ref to case # 
+  `;
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `creating working case
+  `;
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `opening customer KB: 
+  `;
+		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `running tools to verify site status
+  `;
 	} else {
 
 		console.log("im too full!");
-		
+			
 	}
     }
 
+
+	
     function styleTemp(){
 	
 	$("body").css("background-image", "linear-gradient(45deg, #1c1c1c, #1c1c1c)");
@@ -1406,13 +1427,6 @@ The information in this section will be saved automatically and restored when lo
 	document.querySelector(':root').style.setProperty("--color-0K", "#FFFFFF");
 
 
-	function gabagoolCase(){
-		timestamp(`Frontline`);
-		document.getElementById("Frontline_StepsTaken").value += `case came in  in  status`;
-		timestamp(`Frontline`);
-		timestamp(`Frontline`);
-		timestamp(`Frontline`);
-	}
 	
 	
     }

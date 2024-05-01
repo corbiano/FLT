@@ -1308,13 +1308,13 @@ The information in this section will be saved automatically and restored when lo
 
     function addStartText(){
 
-	document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
-	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
-	document.getElementById("Frontline_BackgroundInfo").value = `case came in  in  status
+	document.getElementById("Frontline_InteractionDetails").value = `case came in  in  status
 creating working case
 opening customer KB: 
 running tools to verify site status
 `;
+	document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
+	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
 	    
     }
 

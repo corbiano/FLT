@@ -1314,12 +1314,8 @@ The information in this section will be saved automatically and restored when lo
 
     function addStartText(){
 
-	if(document.getElementById("Frontline_InteractionDetails").value == null){
-		document.getElementById("Frontline_InteractionDetails").value = `case came in  in  status
-creating working case
-opening customer KB: 
-running tools to verify site status
-`;
+	if(document.getElementById("Frontline_InteractionDetails").value == ``){
+		gabagool()
 		document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
 		document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
 	} else {
@@ -1370,7 +1366,14 @@ running tools to verify site status
 	document.querySelector(':root').style.setProperty("--color-0I", "#855672");
 	document.querySelector(':root').style.setProperty("--color-0J", "#FFFFFF");
 	document.querySelector(':root').style.setProperty("--color-0K", "#FFFFFF");
-	
+
+
+	function gabagool(){
+		timestamp(`Frontline`);
+		timestamp(`Frontline`);
+		timestamp(`Frontline`);
+		timestamp(`Frontline`);
+	}
 	
 	
     }

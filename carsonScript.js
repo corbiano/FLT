@@ -5,6 +5,7 @@ let tempNotes = "";
 let inputModal = "";
 let outputModal = "";
 let group = ""
+let interactionType = ""
 
 let canRun = false;
 
@@ -146,7 +147,7 @@ $(`#Frontline_TechnicalTroubleshootingNotes`).parent().parent().find(`.sectionti
 
 $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).append(`
 
-<button type="submit" class="templatebutton" id="noteButton" onclick="addStartText()">Begin</button>
+<button type="submit" class="templatebutton" id="noteButton" onclick="beginInteraction()">Begin</button>
 	
 `);
     
@@ -1312,10 +1313,47 @@ The information in this section will be saved automatically and restored when lo
         localStorage.setItem("StickyNotes", $(tempNotes)[0].value);
     });
 
-    function addStartText(){
+
+    function beginInteraction(){
+	
+	interactionType = document.getElementById("Frontline_TaskType").value;
+	if(interactionType.includes(`Call`)){
+
+		console.log("call notes");
+		
+	} else if(interactionType.includes(`Case`)){
+
+		console.log("case notes");
+		
+	} else {
+
+		console.log("no typer selected, default to case?");
+		
+	}
+	
+	
+	
+    }
+
+
+	
+    function addStartTextCase(){
 
 	if(document.getElementById("Frontline_InteractionDetails").value == ``){
-		gabagool()
+		gabagoolCase();
+		document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
+		document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
+	} else {
+
+		console.log("im too full!");
+		
+	}
+    }
+
+    function addStartTextCall(){
+
+	if(document.getElementById("Frontline_InteractionDetails").value == ``){
+		gabagoolCall();
 		document.getElementById("Frontline_BackgroundInfo").value = "Case originally created on  as an ";
 		document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
 	} else {
@@ -1368,8 +1406,9 @@ The information in this section will be saved automatically and restored when lo
 	document.querySelector(':root').style.setProperty("--color-0K", "#FFFFFF");
 
 
-	function gabagool(){
+	function gabagoolCase(){
 		timestamp(`Frontline`);
+		document.getElementById("Frontline_StepsTaken").value += `case came in  in  status`;
 		timestamp(`Frontline`);
 		timestamp(`Frontline`);
 		timestamp(`Frontline`);

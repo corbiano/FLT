@@ -1324,7 +1324,7 @@ running tools to verify site status
 		document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
 	} else {
 
-		console.log("im too full!")
+		console.log("im too full!");
 		
 	}
     }

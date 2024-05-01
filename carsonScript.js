@@ -386,6 +386,13 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
                 document.getElementById(
                     ESCgroup + "_TempNotes"
                 ).style.height = "100%";
+
+		document.getElementById(
+                    "TemplateResources"
+                ).style.maxHeight = "calc(100vh - 420px)";
+                document.getElementById(
+                    "TemplateResources"
+                ).style.height = "100%";
             }
 
             if (SubTemplateName == "Live Chat Session") {

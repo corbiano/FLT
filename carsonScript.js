@@ -150,11 +150,7 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
 <button type="submit" class="templatebutton" id="noteButton" onclick="beginInteraction()">Begin</button>
 	
 `);
-$(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).append(`
 
-<button type="submit" class="templatebutton" id="testButton" onclick="timestamp("Frontline")">timestamp</button>
-	
-`);
     
 
     try {

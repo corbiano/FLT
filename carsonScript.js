@@ -1341,16 +1341,16 @@ The information in this section will be saved automatically and restored when lo
 	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
 		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `case came in  in  status
-  `;
+`;
 		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `creating working case
-  `;
+`;
 		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `opening customer KB: 
-  `;
+`;
 		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `running tools to verify site status
-  `;
+`;
 	} else {
 
 		console.log("im too full!");

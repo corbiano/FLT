@@ -1344,16 +1344,16 @@ The information in this section will be saved automatically and restored when lo
 	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
 		
 	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `case came in  in  status
   `;
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `creating working case
   `;
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `opening customer KB: 
   `;
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `running tools to verify site status
   `;
 	} else {
@@ -1368,16 +1368,16 @@ The information in this section will be saved automatically and restored when lo
 	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
 		
 	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += ` called in from  in ref to case # 
   `;
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `creating working case
   `;
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `opening customer KB: 
   `;
-		timestamp(`Frontline`);
+		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += `running tools to verify site status
   `;
 	} else {

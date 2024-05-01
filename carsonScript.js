@@ -388,10 +388,10 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
                 ).style.height = "100%";
 
 		document.getElementById(
-                    "TemplateResources"
+                    ESCgroup + "_TemplateHelper"
                 ).style.maxHeight = "calc(100vh - 420px)";
                 document.getElementById(
-                    "TemplateResources"
+                    ESCgroup + "_TemplateHelper"
                 ).style.height = "100%";
             }
 

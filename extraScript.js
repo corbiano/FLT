@@ -64,8 +64,7 @@ function component(width, height, color, x, y) {
 
   this.jump = function(){
     if(isOnFloor)
-      this.speedY = -10;
-      console.log("jump!");
+      this.speedY = -20;
   }
   this.floorCheck = function(){
     if(this.y >= (gameArea.canvas.height * 0.75)){

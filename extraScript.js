@@ -6,7 +6,7 @@ function beginSelectedGame(gameType) {
     $(`#gameArea`).css("width", "100%");
     if(gameType == "test"){
         //backgroundColor("white");
-        Agent = new component(30, 30, "red", (gameArea.canvas.width / 2), (gameArea.canvas.height / 3));
+        Agent = new component(30, 30, "red", (gameArea.canvas.width / 2), (gameArea.canvas.height * 0.75));
         
     }
 }
@@ -62,7 +62,7 @@ function component(width, height, color, x, y) {
   }
 
   this.jump = function(){
-    this.speedY = 5;
+    this.speedY = -5;
   }
 }
 
@@ -80,9 +80,9 @@ function updateGameArea() {
 
 function gravity() {
     
-    if(Agent.height > gameArea.canvas.height / 3) {
+    if(Agent.height > gameArea.canvas.height * 0.75) {
 
-        Agent.speedY -= 0.1;
+        Agent.speedY += 0.1;
         
     }
     

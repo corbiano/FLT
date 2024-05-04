@@ -3,10 +3,10 @@ var Agent;
 function beginSelectedGame(gameType) {
     gameArea.start();
     if(gameType == "test"){
-        var canvas = document.querySelectorAll('canvas');
-        canvas.id = "gameCanvas";
-        backgroundColor("white");
+        //backgroundColor("white");
         //Agent = new component(30, 30, "red", 10, 120);
+        if(document.getElementByID("gameCanvas") != null)
+            console.log("set id!");
     }
 }
 
@@ -16,6 +16,7 @@ var gameArea = {
   	start : function() {
     this.canvas.width = 480;
     this.canvas.height = 270;
+    this.id = "gameCanvas";
    	this.context = this.canvas.getContext("2d");
    	$(`#gameWindow`).append(this.canvas);
   	}

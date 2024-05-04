@@ -15,7 +15,7 @@ var gameArea = {
     this.canvas.width = 480;
     this.canvas.height = 270;
    	this.context = this.canvas.getContext("2d");
-   	$(`#gameWindow`).append(this.canvas);
+   	$(`#gameWindow`).append(this.canvas).attr("id", "gameCanvas");
   	}
 }
 

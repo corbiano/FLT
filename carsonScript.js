@@ -6,6 +6,8 @@ let inputModal = "";
 let outputModal = "";
 let group = ""
 let interactionType = ""
+let gameVisible = false;
+let gameOpen = false;
 
 let canRun = false;
 
@@ -149,6 +151,12 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
 
 <button type="submit" class="templatebutton" id="noteButton" onclick="beginInteraction()">Begin</button>
 	
+`);
+
+$(`#Frontline_IconsTopDefault`).append(`
+
+<div class="IconDefault headertext"><i style="float:right; margin-top: 21px; margin-right: 10px;font-size:26px;" class="fa-sharp fa-solid fa-gamepad" id="gameButton" title="Reload" onclick="openGame()"></i></div>
+
 `);
 
 
@@ -1435,6 +1443,22 @@ The information in this section will be saved automatically and restored when lo
 
 	    
     }
+
+    function openGame() {
+
+	$(`.container-half`).first().append(`
+	<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
+	<div class="sectiontitle borderdark" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game</div>
+   	<button type="submit" class="templatebutton" onclick="closeGame()">Run Tools</button>
+   	</div>
+	`);
+    }
+
+
+    function closeGame() {
+
+	$(`.gameWindow`).remove();
+    }
 	
     function styleTemp(){
 	
@@ -1477,9 +1501,6 @@ The information in this section will be saved automatically and restored when lo
 	document.querySelector(':root').style.setProperty("--color-0I", "#855672");
 	document.querySelector(':root').style.setProperty("--color-0J", "#FFFFFF");
 	document.querySelector(':root').style.setProperty("--color-0K", "#FFFFFF");
-
-
-	
 	
     }
 }

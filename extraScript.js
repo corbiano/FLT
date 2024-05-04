@@ -123,7 +123,6 @@ function updateGameArea() {
       Agent.newPos();
       Agent.update();
       if (frame == 150){
-          Sup.
           Sup = new component(30, 30 + supHeight, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) - supHeight), "wall");
       } else {
           frame += 1;

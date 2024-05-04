@@ -20,6 +20,12 @@ var gameArea = {
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);
         this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener('keydown', function (e) {
+            gameArea.key = e.keyCode;
+            })
+        window.addEventListener('keyup', function (e) {
+            gameArea.key = false;
+            })
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -41,6 +47,8 @@ function backgroundColor(color) {
 function component(width, height, color, x, y) {
   this.width = width;
   this.height = height;
+  this.speedX = 0;
+  this.speedY = 0;
   this.x = x;
   this.y = y;
   this.update = function(){
@@ -48,11 +56,16 @@ function component(width, height, color, x, y) {
     ctx.fillStyle = color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
+  this.newPos = function() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+  }
 }
 
 
 function updateGameArea() {
   gameArea.clear();
-  Agent.x += 1;
+  myGamePiece.newPos();
+  if (myGameArea.key && myGameArea.key == 32) {myGamePiece.speedX = 1; }
   Agent.update();
 }

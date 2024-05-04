@@ -1448,8 +1448,11 @@ The information in this section will be saved automatically and restored when lo
 
 	$(`.container-half`).first().append(`
 	<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
-	<div class="sectiontitle borderdark" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game</div>
-   	<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
+	<div class="sectiontitle borderdark" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
+ 
+   	<button type="submit" class="templatebutton" onclick="closeGame()">X</button>
+ 
+ 	</div>
    	</div>
 	`);
     }

@@ -20,7 +20,7 @@ var gameArea = {
 }
 
 function backgroundColor(color) {
-    var canvas = document.getElementById("canvas");
+    var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
 
     ctx.globalCompositeOperation = 'destination-over'

@@ -6,7 +6,6 @@ let inputModal = "";
 let outputModal = "";
 let group = ""
 let interactionType = ""
-let gameVisible = false;
 let gameOpen = false;
 
 let canRun = false;
@@ -1446,17 +1445,19 @@ The information in this section will be saved automatically and restored when lo
 
     function openGame() {
 
-	$(`.container-half`).first().append(`
-	<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
-	<div class="sectiontitle borderdark" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
+	if(!gameOpen){
+		$(`.container-half`).first().append(`
+		<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
+		<div class="sectiontitle borderdark" id="gameTitle" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
  
-   	<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
+   		<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
  
- 	</div>
-   	</div>
-	`);
+ 		</div>
+   		</div>
+		`);
 
-	gameArea.start();
+		gameArea.start();
+    	}
     }
     var gameArea = {
   	canvas : document.createElement("canvas"),
@@ -1464,7 +1465,7 @@ The information in this section will be saved automatically and restored when lo
     	this.canvas.width = 480;
     	this.canvas.height = 270;
    	this.context = this.canvas.getContext("2d");
-   	$(`#gameWindow`).append("this.canvas");
+   	document.getElementByID("gameTitle").insertAfter(this.canvas, document.body.childNodes[0]);
   	}
     }
     

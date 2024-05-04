@@ -108,7 +108,7 @@ function component(width, height, color, x, y) {
 
 
 function updateGameArea() {
-  if (Agent.crashWith(myObstacle)) {
+  if (Agent.crashWith(Sup)) {
       gameArea.stop();
   } else {
       gameSpeed += 0.001;

@@ -1,5 +1,8 @@
 var Agent;
+var Sup;
 var isOnFloor;
+var gameSpeed;
+var Score;
 
 function beginSelectedGame(gameType) {
     gameArea.start();
@@ -7,7 +10,11 @@ function beginSelectedGame(gameType) {
     $(`#gameArea`).css("width", "100%");
     if(gameType == "test"){
         //backgroundColor("white");
+        score = 0;
+        gameSpeed = 0;
         Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), (gameArea.canvas.height * 0.75));
+        supHeight = (Math.floor(Math.random() * 20) + 30);
+        Sup = new component(30, 30, "red", gameArea.canvas.width, (gameArea.canvas.height * 0.75));
         
     }
 }
@@ -30,7 +37,10 @@ var gameArea = {
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      }
+      },
+    stop : function() {
+    clearInterval(this.interval);
+  }
 }
 
 function backgroundColor(color) {
@@ -75,16 +85,42 @@ function component(width, height, color, x, y) {
     }
     
   }
+
+  this.crashWith = function(otherobj) {
+    var myleft = this.x;
+    var myright = this.x + (this.width);
+    var mytop = this.y;
+    var mybottom = this.y + (this.height);
+    var otherleft = otherobj.x;
+    var otherright = otherobj.x + (otherobj.width);
+    var othertop = otherobj.y;
+    var otherbottom = otherobj.y + (otherobj.height);
+    var crash = true;
+    if ((mybottom < othertop) ||
+        (mytop > otherbottom) ||
+        (myright < otherleft) ||
+        (myleft > otherright)) {
+              crash = false;
+    }
+    return crash;
+  }
 }
 
 
 function updateGameArea() {
-  gameArea.clear();
-  Agent.floorCheck();
-  gravity();
-  if (gameArea.key && gameArea.key == 87) {Agent.jump()};
-  Agent.newPos();
-  Agent.update();
+  if (Agent.crashWith(myObstacle)) {
+      gameArea.stop();
+  } else {
+      gameSpeed += 0.001;
+      gameArea.clear();
+      Agent.floorCheck();
+      gravity();
+      if (gameArea.key && gameArea.key == 87) {Agent.jump()};
+      Sup.x += gameSpeed;
+      Sup.update();
+      Agent.newPos();
+      Agent.update();
+  }
 }
 
 

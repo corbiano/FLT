@@ -3,7 +3,7 @@ var Agent;
 function beginSelectedGame(gameType) {
     gameArea.start();
     if(gameType == "test"){
-        backgroundColor(white);
+        backgroundColor("white");
         //Agent = new component(30, 30, "red", 10, 120);
     }
 }
@@ -25,7 +25,7 @@ function backgroundColor(color) {
 
     ctx.globalCompositeOperation = 'destination-over'
 
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = color;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
 }

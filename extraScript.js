@@ -15,8 +15,8 @@ function beginSelectedGame(gameType) {
         frame = 0;
         gameSpeed = 5;
         Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), (gameArea.canvas.height * 0.75), "player");
-        supHeight = (Math.floor(Math.random() * 20));
-        Sup = new component(30, 30 + supHeight, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) - supHeight), "wall");
+        
+
         
     }
 }
@@ -122,8 +122,10 @@ function updateGameArea() {
       Sup.update();
       Agent.newPos();
       Agent.update();
-      if (frame == 150){
+      if (frame >= 150){
+          supHeight = (Math.floor(Math.random() * 20));
           Sup = new component(30, 30 + supHeight, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) - supHeight), "wall");
+          frame = 0;
       } else {
           frame += 1;
       }

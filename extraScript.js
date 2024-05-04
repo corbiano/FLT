@@ -2,7 +2,7 @@ var Agent;
 
 function beginSelectedGame(gameType) {
     gameArea.start();
-    gameArea.id = "gameArea";
+    gameArea.canvas.id = "gameArea";
     if(gameType == "test"){
         //backgroundColor("white");
         //Agent = new component(30, 30, "red", 10, 120);

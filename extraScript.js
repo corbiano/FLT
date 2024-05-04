@@ -3,6 +3,8 @@ var Agent;
 function beginSelectedGame(gameType) {
     gameArea.start();
     if(gameType == "test"){
+        var canvas = document.querySelectorAll('canvas');
+        canvas.id = "gameCanvas"
         backgroundColor("white");
         //Agent = new component(30, 30, "red", 10, 120);
     }

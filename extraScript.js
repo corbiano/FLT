@@ -80,7 +80,6 @@ function component(width, height, color, x, y) {
 function updateGameArea() {
   gameArea.clear();
   Agent.floorCheck();
-  console.log(isOnFloor);
   gravity();
   Agent.speedX = 0;
   Agent.speedY = 0;
@@ -92,6 +91,6 @@ function updateGameArea() {
 
 function gravity() {
     if(!isOnFloor) {
-        Agent.speedY += 0.1;
+        Agent.speedY += 0.5;
     }
 }

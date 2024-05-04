@@ -3,6 +3,7 @@ var Sup;
 var isOnFloor;
 var gameSpeed;
 var Score;
+var frame;
 
 function beginSelectedGame(gameType) {
     gameArea.start();
@@ -11,10 +12,11 @@ function beginSelectedGame(gameType) {
     if(gameType == "test"){
         //backgroundColor("white");
         score = 0;
+        frame = 0;
         gameSpeed = 5;
-        Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), (gameArea.canvas.height * 0.75));
+        Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), (gameArea.canvas.height * 0.75), "player");
         supHeight = (Math.floor(Math.random() * 20));
-        Sup = new component(30, 30 + supHeight, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) - supHeight));
+        Sup = new component(30, 30 + supHeight, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) - supHeight), "wall");
         
     }
 }
@@ -55,7 +57,7 @@ function backgroundColor(color) {
 }
 
 
-function component(width, height, color, x, y) {
+function component(width, height, color, x, y, type) {
   this.width = width;
   this.height = height;
   this.speedX = 0;
@@ -73,7 +75,7 @@ function component(width, height, color, x, y) {
   }
 
   this.jump = function(){
-    if(isOnFloor)
+    if(isOnFloor && type == "player")
       this.speedY = -15;
   }
   this.floorCheck = function(){
@@ -116,9 +118,16 @@ function updateGameArea() {
       gravity();
       if (gameArea.key && gameArea.key == 87) {Agent.jump()};
       Sup.x -= gameSpeed;
+      Sup.speedY = 0;
       Sup.update();
       Agent.newPos();
       Agent.update();
+      if (frame == 150){
+          Sup.
+          Sup = new component(30, 30 + supHeight, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) - supHeight), "wall");
+      } else {
+          frame += 1;
+      }
   }
 }
 

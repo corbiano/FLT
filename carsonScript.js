@@ -1450,7 +1450,7 @@ The information in this section will be saved automatically and restored when lo
 	<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
 	<div class="sectiontitle borderdark" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
  
-   	<button type="submit" class="templatebutton" onclick="closeGame()">X</button>
+   	<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
  
  	</div>
    	</div>
@@ -1460,7 +1460,7 @@ The information in this section will be saved automatically and restored when lo
 
     function closeGame() {
 
-	$(`.gameWindow`).remove();
+	$(`#gameWindow`).remove();
     }
 	
     function styleTemp(){

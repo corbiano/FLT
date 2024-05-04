@@ -2,11 +2,11 @@ var Agent;
 
 function beginSelectedGame(gameType) {
     gameArea.start();
+    gameArea.id = "gameArea";
     if(gameType == "test"){
         //backgroundColor("white");
         //Agent = new component(30, 30, "red", 10, 120);
-        if(document.getElementByID("gameCanvas") != null)
-            console.log("set id!");
+        console.log("set id!");
     }
 }
 
@@ -16,14 +16,13 @@ var gameArea = {
   	start : function() {
     this.canvas.width = 480;
     this.canvas.height = 270;
-    this.id = "gameCanvas";
    	this.context = this.canvas.getContext("2d");
    	$(`#gameWindow`).append(this.canvas);
   	}
 }
 
 function backgroundColor(color) {
-    var canvas = document.getElementById("gameCanvas");
+    var canvas = document.getElementById("gameArea");
     var ctx = canvas.getContext("2d");
 
     ctx.globalCompositeOperation = 'destination-over'

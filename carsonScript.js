@@ -1463,9 +1463,8 @@ The information in this section will be saved automatically and restored when lo
     
     
     function closeGame() {
-
 	$(`#gameWindow`).remove();
-	console.log("GAME OFF");
+	gameOpen = false;
     }
 	
     function styleTemp(){

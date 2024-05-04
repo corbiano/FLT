@@ -60,7 +60,8 @@ function component(width, height, color, x, y) {
   }
 
   this.jump = function(){
-    this.speedY = -5;
+    if(isOnFloor)
+      this.speedY = -10;
   }
   this.floorCheck = function(){
     if(this.y >= (gameArea.canvas.height * 0.75)){

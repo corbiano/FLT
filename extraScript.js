@@ -91,7 +91,7 @@ function updateGameArea() {
 
 function gravity() {
     if(!isOnFloor) {
-        Agent.speedY += 0.5;
+        Agent.speedY += 1;
         console.log("falling!");
     }
 }

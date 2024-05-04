@@ -1446,6 +1446,7 @@ The information in this section will be saved automatically and restored when lo
     function openGame() {
 
 	if(!gameOpen){
+		gameOpen = true;
 		$(`.container-half`).first().append(`
 		<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
 		<div class="sectiontitle borderdark" id="gameTitle" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
@@ -1455,9 +1456,9 @@ The information in this section will be saved automatically and restored when lo
  		</div>
    		</div>
 		`);
-
+		
 		gameArea.start();
-		console.log("GAME ON");
+		beginSelectedGame('test');
     	}
     }
     var gameArea = {

@@ -11,7 +11,7 @@ function beginSelectedGame(gameType) {
     if(gameType == "test"){
         //backgroundColor("white");
         score = 0;
-        gameSpeed = 1;
+        gameSpeed = 5;
         Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), (gameArea.canvas.height * 0.75));
         supHeight = (Math.floor(Math.random() * 20);
         Sup = new component(30, 30 + supHeight, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) - supHeight));

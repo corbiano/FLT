@@ -21,11 +21,8 @@ var gameArea = {
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);
         this.interval = setInterval(updateGameArea, 20);
-        window.addEventListener('keydown', function (e) {
+        window.addEventListener('keypress', function (e) {
             gameArea.key = e.keyCode;
-            })
-        window.addEventListener('keyup', function (e) {
-            gameArea.key = false;
             })
     },
     clear : function() {

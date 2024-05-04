@@ -80,7 +80,7 @@ function updateGameArea() {
 
 function gravity() {
     
-    if(Agent.height > gameArea.canvas.height * 0.75) {
+    if(Agent.height < gameArea.canvas.height * 0.75) {
 
         Agent.speedY += 0.1;
         

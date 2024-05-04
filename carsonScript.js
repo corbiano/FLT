@@ -1457,6 +1457,7 @@ The information in this section will be saved automatically and restored when lo
 		`);
 
 		gameArea.start();
+		console.log("GAME ON");
     	}
     }
     var gameArea = {
@@ -1465,13 +1466,14 @@ The information in this section will be saved automatically and restored when lo
     	this.canvas.width = 480;
     	this.canvas.height = 270;
    	this.context = this.canvas.getContext("2d");
-   	document.getElementByID("gameTitle").insertAfter(this.canvas, document.body.childNodes[0]);
+   	$(`#gameTitle`).insertAfter(this.canvas);
   	}
     }
     
     function closeGame() {
 
 	$(`#gameWindow`).remove();
+	console.log("GAME OFF");
     }
 	
     function styleTemp(){

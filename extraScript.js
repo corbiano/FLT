@@ -80,10 +80,11 @@ function component(width, height, color, x, y) {
 function updateGameArea() {
   gameArea.clear();
   Agent.floorCheck();
+  console.log(isOnFloor);
   gravity();
   Agent.speedX = 0;
   Agent.speedY = 0;
-  if (gameArea.key && gameArea.key == 32) {Agent.jump()};
+  if (gameArea.key && gameArea.key == 87) {Agent.jump()};
   Agent.newPos();
   Agent.update();
 }

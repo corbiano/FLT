@@ -1466,7 +1466,7 @@ The information in this section will be saved automatically and restored when lo
     	this.canvas.width = 480;
     	this.canvas.height = 270;
    	this.context = this.canvas.getContext("2d");
-   	$(`#gameTitle`).insertAfter(this.canvas);
+   	$(`#gameWindow`).append(this.canvas);
   	}
     }
     

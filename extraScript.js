@@ -1,4 +1,5 @@
 var Agent;
+var isOnFloor = true;
 
 function beginSelectedGame(gameType) {
     gameArea.start();
@@ -64,11 +65,21 @@ function component(width, height, color, x, y) {
   this.jump = function(){
     this.speedY = -5;
   }
+  this.isOnFloor = function(){
+    if(this.y >= (gameArea.canvas.height * 0.75)){
+        this.y = (gameArea.canvas.height * 0.75);
+        isOnFloor = true;
+    } else {
+        isOnFloor = false;
+    }
+    
+  }
 }
 
 
 function updateGameArea() {
   gameArea.clear();
+  Agent.isOnFloor();
   gravity();
   Agent.speedX = 0;
   Agent.speedY = 0;
@@ -79,11 +90,7 @@ function updateGameArea() {
 
 
 function gravity() {
-    
-    if(Agent.y  < gameArea.canvas.height * 0.75) {
-
+    if(!isOnFloor) {
         Agent.speedY += 0.1;
-        
     }
-    
 }

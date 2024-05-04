@@ -66,7 +66,7 @@ function component(width, height, color, x, y) {
     this.speedY = -5;
   }
   this.floorCheck = function(){
-    if(this.y <= (gameArea.canvas.height * 0.75)){
+    if(this.y >= (gameArea.canvas.height * 0.75)){
         this.y = (gameArea.canvas.height * 0.75);
         isOnFloor = true;
     } else {

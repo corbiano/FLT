@@ -65,7 +65,7 @@ function component(width, height, color, x, y) {
   this.jump = function(){
     this.speedY = -5;
   }
-  this.isOnFloor = function(){
+  this.floorCheck = function(){
     if(this.y >= (gameArea.canvas.height * 0.75)){
         this.y = (gameArea.canvas.height * 0.75);
         isOnFloor = true;
@@ -79,7 +79,7 @@ function component(width, height, color, x, y) {
 
 function updateGameArea() {
   gameArea.clear();
-  Agent.isOnFloor();
+  Agent.floorCheck();
   gravity();
   Agent.speedX = 0;
   Agent.speedY = 0;

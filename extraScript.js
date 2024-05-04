@@ -5,7 +5,7 @@ function beginSelectedGame(gameType) {
     gameArea.canvas.id = "gameArea";
     $(`#gameArea`).css("width", "100%");
     if(gameType == "test"){
-        backgroundColor("white");
+        //backgroundColor("white");
         Agent = new component(30, 30, "red", 10, 120);
         
     }

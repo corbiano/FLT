@@ -116,7 +116,7 @@ function updateGameArea() {
       Agent.floorCheck();
       gravity();
       if (gameArea.key && gameArea.key == 87) {Agent.jump()};
-      Sup.x += gameSpeed;
+      Sup.x -= gameSpeed;
       Sup.update();
       Agent.newPos();
       Agent.update();

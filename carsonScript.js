@@ -1457,19 +1457,10 @@ The information in this section will be saved automatically and restored when lo
    		</div>
 		`);
 		
-		gameArea.start();
 		beginSelectedGame('test');
     	}
     }
-    var gameArea = {
-  	canvas : document.createElement("canvas"),
-  	start : function() {
-    	this.canvas.width = 480;
-    	this.canvas.height = 270;
-   	this.context = this.canvas.getContext("2d");
-   	$(`#gameWindow`).append(this.canvas);
-  	}
-    }
+    
     
     function closeGame() {
 

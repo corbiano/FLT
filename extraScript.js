@@ -1,5 +1,5 @@
 var Agent;
-var isOnFloor = true;
+var isOnFloor;
 
 function beginSelectedGame(gameType) {
     gameArea.start();

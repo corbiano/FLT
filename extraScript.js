@@ -6,7 +6,7 @@ function beginSelectedGame(gameType) {
     $(`#gameArea`).css("width", "100%");
     if(gameType == "test"){
         //backgroundColor("white");
-        Agent = new component(30, 30, "red", (gameArea.canvas.width / 2), (gameArea.canvas.height / 2));
+        Agent = new component(30, 30, "red", (gameArea.canvas.width / 2), (gameArea.canvas.height / 3));
         
     }
 }
@@ -60,14 +60,30 @@ function component(width, height, color, x, y) {
     this.x += this.speedX;
     this.y += this.speedY;
   }
+
+  this.jump = function(){
+    this.speedY = 5;
+  }
 }
 
 
 function updateGameArea() {
   gameArea.clear();
+  gravity();
   Agent.speedX = 0;
   Agent.speedY = 0;
-  if (gameArea.key && gameArea.key == 32) {Agent.speedX = 1; }
+  if (gameArea.key && gameArea.key == 32) {Agent.jump()};
   Agent.newPos();
   Agent.update();
+}
+
+
+function gravity() {
+    
+    if(Agent.height > gameArea.canvas.height / 3) {
+
+        Agent.speedY -= 0.1;
+        
+    }
+    
 }

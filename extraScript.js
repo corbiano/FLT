@@ -65,7 +65,7 @@ function component(width, height, color, x, y) {
 
 function updateGameArea() {
   gameArea.clear();
-  myGamePiece.newPos();
-  if (myGameArea.key && myGameArea.key == 32) {myGamePiece.speedX = 1; }
+  Agent.newPos();
+  if (gameArea.key && gameArea.key == 32) {Agent.speedX = 1; }
   Agent.update();
 }

@@ -52,6 +52,7 @@ function beginSelectedGame(gameType) {
 	    highScore = localStorage.getItem("highScore");
 	    gameArea.start();
 	    gameArea.canvas.id = "gameArea";
+	    $(`#gameArea`).css("margin", "auto");
 	    //$(`#gameArea`).css("width", "100%");
 	    if(gameStart){
 	            backgroundColor("black");

@@ -42,9 +42,11 @@ function openGame() {
     
     
 function closeGame() {
-	  $(`#gameWindow`).remove();
-	  clearInterval(updateGameArea);
+	  gameArea.stop();
+	  gameStart = false;
 	  gameOpen = false;
+	  clearInterval(updateGameArea);
+	  $(`#gameWindow`).remove();
 }
 
 function beginSelectedGame(gameType) {

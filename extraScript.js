@@ -46,9 +46,9 @@ function closeGame() {
 	  gameStart = false;
 	  gameOpen = false;
 	  clearInterval(updateGameArea);
-	  window.removeEventListener('mousemove', function (e), true)
-      	  window.removeEventListener('keydown', function (e), true)
-          window.removeEventListener('keyup', function (e), true)
+	  window.removeEventListener('mousemove', mouseMove, true)
+      	  window.removeEventListener('keydown', keyDown, true)
+          window.removeEventListener('keyup', keyUp, true)
 	  $(`#gameWindow`).remove();
 }
 
@@ -171,19 +171,19 @@ var gameArea = {
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);
         this.interval = setInterval(updateGameArea, 20);
-        window.removeEventListener('mousemove', function (e), true)
-      	window.removeEventListener('keydown', function (e), true)
-        window.removeEventListener('keyup', function (e), true)
-        window.addEventListener('mousemove', function (e) {
+        window.removeEventListener('mousemove', mouseMove, true)
+      	window.removeEventListener('keydown', keyDown, true)
+        window.removeEventListener('keyup', keyUp, true)
+        window.addEventListener('mousemove', mouseMove (e) {
             const gameWindow = document.getElementById("gameWindow");
             const coords = getRelativeCoordinates(e, gameWindow);
             mouseX = coords.x;
             mouseY = coords.y;
         })
-        window.addEventListener('keydown', function (e) {
+        window.addEventListener('keydown', keyDown (e) {
             gameArea.key = e.keyCode;
             })
-        window.addEventListener('keyup', function (e) {
+        window.addEventListener('keyup', keyUp (e) {
             gameArea.key = false;
             })
     },
@@ -443,18 +443,9 @@ function resetGame(){
 	  clearInterval(updateGameArea);
 	  Score = 0;
 	  gameSpeed = 0;
-	  window.removeEventListener('mousemove', function (e) {
-          	const gameWindow = document.getElementById("gameWindow");
-          	const coords = getRelativeCoordinates(e, gameWindow);
-         	 mouseX = coords.x;
-          	mouseY = coords.y;
-      	  })
-      	  window.removeEventListener('keydown', function (e) {
-          	gameArea.key = e.keyCode;
-          })
-          window.removeEventListener('keyup', function (e) {
-          	gameArea.key = false;
-          })
+	  window.removeEventListener('mousemove', mouseMove, true)
+      	  window.removeEventListener('keydown', keyDown, true)
+          window.removeEventListener('keyup', keyUp, true)
 	  beginSelectedGame();
 	}
 }
@@ -467,18 +458,9 @@ function resetGameMenu(){
 	  Score = 0;
 	  gameSpeed = 0;
 	  gameStart = false;
-	  window.removeEventListener('mousemove', function (e) {
-          	const gameWindow = document.getElementById("gameWindow");
-          	const coords = getRelativeCoordinates(e, gameWindow);
-         	 mouseX = coords.x;
-          	mouseY = coords.y;
-      	  })
-      	  window.removeEventListener('keydown', function (e) {
-          	gameArea.key = e.keyCode;
-          })
-          window.removeEventListener('keyup', function (e) {
-          	gameArea.key = false;
-          })
+	  window.removeEventListener('mousemove', mouseMove, true)
+      	  window.removeEventListener('keydown', keyDown, true)
+          window.removeEventListener('keyup', keyUp, true)
 	  var oldCanv = document.getElementById('gameArea');
 	  document.getElementById('gameWindow').removeChild(oldCanv);
 	  beginSelectedGame();

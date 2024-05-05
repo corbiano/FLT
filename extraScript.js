@@ -171,21 +171,10 @@ var gameArea = {
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);
         this.interval = setInterval(updateGameArea, 20);
-        window.removeEventListener('mousemove', mouseMove, true)
-      	window.removeEventListener('keydown', keyDown, true)
-        window.removeEventListener('keyup', keyUp, true)
-        window.addEventListener('mousemove', mouseMove (e) {
-            const gameWindow = document.getElementById("gameWindow");
-            const coords = getRelativeCoordinates(e, gameWindow);
-            mouseX = coords.x;
-            mouseY = coords.y;
-        })
-        window.addEventListener('keydown', keyDown (e) {
-            gameArea.key = e.keyCode;
-            })
-        window.addEventListener('keyup', keyUp (e) {
-            gameArea.key = false;
-            })
+        window.addEventListener('mousemove', mouseMove, true)
+      	window.addEventListener('keydown', keyDown, true)
+        window.addEventListener('keyup', keyUp, true)
+        
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -472,4 +461,18 @@ function gravity() {
     if(!isOnFloor && gameOpen) {
         Agent.speedY += 1;
     }
+}
+
+
+function mouseMove(){
+	const gameWindow = document.getElementById("gameWindow");
+        const coords = getRelativeCoordinates(e, gameWindow);
+        mouseX = coords.x;
+        mouseY = coords.y;
+}
+function keyDown(){
+	gameArea.key = e.keyCode;
+}
+function keyUp(){
+	gameArea.key = false;
 }

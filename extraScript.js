@@ -464,15 +464,15 @@ function gravity() {
 }
 
 
-function mouseMove(){
+function mouseMove(event){
 	const gameWindow = document.getElementById("gameWindow");
-        const coords = getRelativeCoordinates(e, gameWindow);
+        const coords = getRelativeCoordinates(event, gameWindow);
         mouseX = coords.x;
         mouseY = coords.y;
 }
-function keyDown(){
-	gameArea.key = e.keyCode;
+function keyDown(event){
+	gameArea.key = event.keyCode;
 }
-function keyUp(){
+function keyUp(event){
 	gameArea.key = false;
 }

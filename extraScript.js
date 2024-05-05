@@ -46,6 +46,18 @@ function closeGame() {
 	  gameStart = false;
 	  gameOpen = false;
 	  clearInterval(updateGameArea);
+	  window.removeEventListener('mousemove', function (e) {
+          	const gameWindow = document.getElementById("gameWindow");
+          	const coords = getRelativeCoordinates(e, gameWindow);
+         	 mouseX = coords.x;
+          	mouseY = coords.y;
+      	  })
+      	  window.removeEventListener('keydown', function (e) {
+          	gameArea.key = e.keyCode;
+          })
+          window.removeEventListener('keyup', function (e) {
+          	gameArea.key = false;
+          })
 	  $(`#gameWindow`).remove();
 }
 
@@ -449,6 +461,18 @@ function resetGame(){
 	  clearInterval(updateGameArea);
 	  Score = 0;
 	  gameSpeed = 0;
+	  window.removeEventListener('mousemove', function (e) {
+          	const gameWindow = document.getElementById("gameWindow");
+          	const coords = getRelativeCoordinates(e, gameWindow);
+         	 mouseX = coords.x;
+          	mouseY = coords.y;
+      	  })
+      	  window.removeEventListener('keydown', function (e) {
+          	gameArea.key = e.keyCode;
+          })
+          window.removeEventListener('keyup', function (e) {
+          	gameArea.key = false;
+          })
 	  beginSelectedGame();
 	}
 }
@@ -461,6 +485,18 @@ function resetGameMenu(){
 	  Score = 0;
 	  gameSpeed = 0;
 	  gameStart = false;
+	  window.removeEventListener('mousemove', function (e) {
+          	const gameWindow = document.getElementById("gameWindow");
+          	const coords = getRelativeCoordinates(e, gameWindow);
+         	 mouseX = coords.x;
+          	mouseY = coords.y;
+      	  })
+      	  window.removeEventListener('keydown', function (e) {
+          	gameArea.key = e.keyCode;
+          })
+          window.removeEventListener('keyup', function (e) {
+          	gameArea.key = false;
+          })
 	  var oldCanv = document.getElementById('gameArea');
 	  document.getElementById('gameWindow').removeChild(oldCanv);
 	  beginSelectedGame();

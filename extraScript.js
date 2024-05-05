@@ -13,7 +13,7 @@ var lastScore = 0;
 var killedBy = "";
 
 
-var gameVis = false;
+var gameOpen = false;
 var gameStart = false;
 
 $(`#Frontline_IconsTopDefault`).append(`
@@ -21,6 +21,31 @@ $(`#Frontline_IconsTopDefault`).append(`
 <div class="IconDefault headertext"><i style="float:right; margin-top: 21px; margin-right: 10px;font-size:26px;" class="fa-sharp fa-solid fa-gamepad" id="gameButton" title="Reload" onclick="openGame()"></i></div>
 
 `);
+
+
+function openGame() {
+	if(!gameOpen){
+		gameOpen = true;
+		  $(`.container-half`).first().append(`
+		  <div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
+		  <div class="sectiontitle borderdark" id="gameTitle" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
+ 
+   		<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
+ 
+ 		  </div>
+   		</div>
+		  `);
+		
+		  beginSelectedGame('test');
+    }
+  }
+    
+    
+function closeGame() {
+	  $(`#gameWindow`).remove();
+	  clearInterval(updateGameArea);
+	  gameOpen = false;
+}
 
 function beginSelectedGame(gameType) {
   if(gameVis){

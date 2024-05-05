@@ -48,7 +48,6 @@ function closeGame() {
 }
 
 function beginSelectedGame(gameType) {
-  if(gameVis){
     highScore = localStorage.getItem("highScore");
     gameArea.start();
     gameArea.canvas.id = "gameArea";
@@ -63,7 +62,6 @@ function beginSelectedGame(gameType) {
             Duck = new component(10, 10, "yellow", gameArea.canvas.width + 300, (gameArea.canvas.height - 50), "collectable");
         
       }
-    }
 }
 
 function titleScreen() {

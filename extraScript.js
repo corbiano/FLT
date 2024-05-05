@@ -46,18 +46,9 @@ function closeGame() {
 	  gameStart = false;
 	  gameOpen = false;
 	  clearInterval(updateGameArea);
-	  window.removeEventListener('mousemove', function (e) {
-          	const gameWindow = document.getElementById("gameWindow");
-          	const coords = getRelativeCoordinates(e, gameWindow);
-         	 mouseX = coords.x;
-          	mouseY = coords.y;
-      	  })
-      	  window.removeEventListener('keydown', function (e) {
-          	gameArea.key = e.keyCode;
-          })
-          window.removeEventListener('keyup', function (e) {
-          	gameArea.key = false;
-          })
+	  window.removeEventListener('mousemove', function (e), true)
+      	  window.removeEventListener('keydown', function (e), true)
+          window.removeEventListener('keyup', function (e), true)
 	  $(`#gameWindow`).remove();
 }
 
@@ -180,18 +171,9 @@ var gameArea = {
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);
         this.interval = setInterval(updateGameArea, 20);
-        window.removeEventListener('mousemove', function (e) {
-          const gameWindow = document.getElementById("gameWindow");
-          const coords = getRelativeCoordinates(e, gameWindow);
-          mouseX = coords.x;
-          mouseY = coords.y;
-      })
-      window.removeEventListener('keydown', function (e) {
-          gameArea.key = e.keyCode;
-          })
-      window.removeEventListener('keyup', function (e) {
-          gameArea.key = false;
-          })
+        window.removeEventListener('mousemove', function (e), true)
+      	window.removeEventListener('keydown', function (e), true)
+        window.removeEventListener('keyup', function (e), true)
         window.addEventListener('mousemove', function (e) {
             const gameWindow = document.getElementById("gameWindow");
             const coords = getRelativeCoordinates(e, gameWindow);

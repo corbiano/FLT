@@ -13,22 +13,31 @@ var lastScore = 0;
 var killedBy = "";
 
 
+var gameVis = false;
 var gameStart = false;
 
+$(`#Frontline_IconsTopDefault`).append(`
+
+<div class="IconDefault headertext"><i style="float:right; margin-top: 21px; margin-right: 10px;font-size:26px;" class="fa-sharp fa-solid fa-gamepad" id="gameButton" title="Reload" onclick="openGame()"></i></div>
+
+`);
+
 function beginSelectedGame(gameType) {
-  highScore = localStorage.getItem("highScore");
-  gameArea.start();
-  gameArea.canvas.id = "gameArea";
-  //$(`#gameArea`).css("width", "100%");
-  if(gameStart){
-          backgroundColor("black");
-          Score = 0;
-          frame = 0;
-          gameSpeed = 4;
-          Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
-          Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
-          Duck = new component(10, 10, "yellow", gameArea.canvas.width + 300, (gameArea.canvas.height - 50), "collectable");
-      
+  if(gameVis){
+    highScore = localStorage.getItem("highScore");
+    gameArea.start();
+    gameArea.canvas.id = "gameArea";
+    //$(`#gameArea`).css("width", "100%");
+    if(gameStart){
+            backgroundColor("black");
+            Score = 0;
+            frame = 0;
+            gameSpeed = 4;
+            Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
+            Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
+            Duck = new component(10, 10, "yellow", gameArea.canvas.width + 300, (gameArea.canvas.height - 50), "collectable");
+        
+      }
     }
 }
 
@@ -349,7 +358,7 @@ function updateGameArea() {
       resetGame();
     }
 
-  } else {
+  } else if(gameStart){
       gameArea.clear();
       backgroundColor("black");
 

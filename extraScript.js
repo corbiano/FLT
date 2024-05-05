@@ -345,7 +345,8 @@ function updateGameArea() {
     if(gameArea.key && gameArea.key == 82){
       resetGame();
     } else if (gameArea.key && gameArea.key == 77){
-      workInProgress();
+      gameStart = false;
+      resetGame();
     }
 
   } else {

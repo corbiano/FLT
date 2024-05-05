@@ -435,7 +435,6 @@ function updateGameArea() {
 	
 	      updateScore();
 	
-	      console.log(Sup.speedX);
 	  }
 	}
 }

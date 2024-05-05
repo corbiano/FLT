@@ -1438,30 +1438,7 @@ The information in this section will be saved automatically and restored when lo
 	    
     }
 
-    function openGame() {
-
-	if(!gameOpen){
-		gameOpen = true;
-		$(`.container-half`).first().append(`
-		<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
-		<div class="sectiontitle borderdark" id="gameTitle" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
- 
-   		<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
- 
- 		</div>
-   		</div>
-		`);
-		
-		beginSelectedGame('test');
-    	}
-    }
     
-    
-    function closeGame() {
-	$(`#gameWindow`).remove();
-	clearInterval(updateGameArea);
-	gameOpen = false;
-    }
 	
     function styleTemp(){
 	

@@ -6,7 +6,6 @@ let inputModal = "";
 let outputModal = "";
 let group = ""
 let interactionType = ""
-let gameOpen = false;
 
 let canRun = false;
 

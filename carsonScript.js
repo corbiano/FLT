@@ -1376,7 +1376,12 @@ The information in this section will be saved automatically and restored when lo
     function gabagoolCall(){
 	document.getElementById("Frontline_BackgroundInfo").value = " called in from  in ref to case #  explaining ";
 	document.getElementById("Frontline_StepsTaken").value = "read notes, created wc, opened kb, ran tools, ";
-		
+	document.getElementById(
+                    ESCgroup + "_TechnicalTroubleshootingNotes"
+                ).style.maxHeight = "calc(100vh - 420px)";
+                document.getElementById(
+                    ESCgroup + "_TechnicalTroubleshootingNotes"
+                ).style.height = "100%";
 	if(document.getElementById("Frontline_InteractionDetails").value == ``) {	
 		customTimeStamp();
 		document.getElementById("Frontline_InteractionDetails").value += ` called in from  in ref to case # 
@@ -1473,6 +1478,7 @@ The information in this section will be saved automatically and restored when lo
 	$('.ResourceIcon').css("color", "#ffffff");
 	$('.templatebutton').css("padding", "0px 5px 0px 5px");
 	$('.fieldformtext').css("padding", "0px 5px 0px 5px");
+	$(`.escgroup`).html("")
 	document.querySelector(':root').style.setProperty("--color-13", "#1c1c1c");
 	document.querySelector(':root').style.setProperty("--color-0B", "#fff");
 	document.querySelector(':root').style.setProperty("--color-0C", "#FFFFFF");

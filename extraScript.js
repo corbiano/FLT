@@ -278,6 +278,13 @@ function failScreen() {
 	ctx.fillStyle = "white";
 	ctx.font = "20px Arial";
 	ctx.fillText("RETRY", 33, 160, 146, 70);
+
+	//HANDLE INPUT
+	if(gameArea.key && gameArea.key == 82){
+		resetGame();
+	else if (gameArea.key && gameArea.key == 77){
+		gameStart = false;
+		resetGameMenu();
 }
 
 
@@ -342,28 +349,10 @@ function updateGameArea() {
 		} else {
 			storeScreen();
 		}
-	} else if (Agent.crashWith(Sup)) {  
-		gameArea.clear();
-		localStorage.setItem("lastScore", Score);
-		tempDuck = wallet + score;
-		localStorage.setItem("currentDucks", tempDuck);
-		localStorage.setItem("killedBy", "Sup");
-		if(Score > localStorage.getItem("highScore"))
-			localStorage.setItem("highScore", Score);
-		
-		failScreen();
-		if(gameArea.key && gameArea.key == 82){
-			resetGame();
-		} else if (gameArea.key && gameArea.key == 77){
-		gameStart = false;
-			resetGame();
-		}
-	
 	} else if(gameStart){
 		gameArea.clear();
 		backgroundColor("black");
 		updateScore();
-
 
 
 		//AGENT CODE
@@ -376,6 +365,20 @@ function updateGameArea() {
 			var randY = (-(Math.floor(Math.random() * 50)) - 50);
 			Duck.y = ((gameArea.canvas.height * 0.75) + randY);
 			Score += 1;
+		}
+		
+		if (Agent.crashWith(Sup)) {  
+			gameArea.clear();
+			localStorage.setItem("lastScore", Score);
+			tempDuck = wallet + score;
+			localStorage.setItem("currentDucks", tempDuck);
+			localStorage.setItem("killedBy", "Sup");
+			
+			if(Score > localStorage.getItem("highScore")){
+				localStorage.setItem("highScore", Score);
+			}
+			
+			failScreen();
 		}
 
 		if (gameArea.key && gameArea.key == 87) {Agent.jump()};
@@ -415,33 +418,27 @@ function updateGameArea() {
 	}
 }
 
-function resetGame(){
-	if(!storeOpen){   
-		gameArea.stop();
-		gameArea.clear();
-		clearInterval(updateGameArea);
-		Score = 0;
-		gameSpeed = 0;
-		window.removeEventListener('keydown', keyDown, true)
-		window.removeEventListener('keyup', keyUp, true)
-		beginSelectedGame();
-	}
+function resetGame(){ 
+	gameArea.stop();
+	gameArea.clear();
+	Score = 0;
+	gameSpeed = 0;
+	window.removeEventListener('keydown', keyDown, true)
+	window.removeEventListener('keyup', keyUp, true)
+	beginSelectedGame();
 }
 
 function resetGameMenu(){
-	if(!storeOpen){   
-		gameArea.stop();
-		gameArea.clear();
-		clearInterval(updateGameArea);
-		Score = 0;
-		gameSpeed = 0;
-		gameStart = false;
-		window.removeEventListener('keydown', keyDown, true)
-		window.removeEventListener('keyup', keyUp, true)
-		var oldCanv = document.getElementById('gameArea');
-		document.getElementById('gameWindow').removeChild(oldCanv);
-		beginSelectedGame();
-	}
+	gameArea.stop();
+	gameArea.clear();
+	Score = 0;
+	gameSpeed = 0;
+	gameStart = false;
+	window.removeEventListener('keydown', keyDown, true)
+	window.removeEventListener('keyup', keyUp, true)
+	var oldCanv = document.getElementById('gameArea');
+	document.getElementById('gameWindow').removeChild(oldCanv);
+	beginSelectedGame();
 }
 
 

@@ -13,7 +13,7 @@ var lastScore = 0;
 var killedBy = "";
 var wallet = 0;
 var tempDuck = 0;
-
+var selectedAgent = "";
 
 var gameOpen = false;
 var gameStart = false;
@@ -98,24 +98,27 @@ function component(width, height, color, x, y, type) {
 
 
 function beginSelectedGame(gameType) {
-	if(gameOpen){
-		highScore = localStorage.getItem("highScore");
-		wallet = localStorage.getItem("currentDucks");
-		gameArea.start();
-		gameArea.canvas.id = "gameArea";
-		$(`#gameArea`).css("margin", "auto");
-		$(`#gameArea`).css("border-radius", "10px");
-		$(`#gameArea`).css("width", "100%");
-		
-		if(gameStart){
-			backgroundColor("black");
-			Score = 0;
-			frame = 0;
-			gameSpeed = 4;
-			Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
-			Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
-			Duck = new component(10, 10, "yellow", gameArea.canvas.width + 300, (gameArea.canvas.height - 50), "collectable");
-		
+	if(gameType == "Jump"){
+		if(gameOpen){
+			highScore = localStorage.getItem("highScore");
+			wallet = localStorage.getItem("currentDucks");
+			
+			gameArea.start();
+			gameArea.canvas.id = "gameArea";
+			$(`#gameArea`).css("margin", "auto");
+			$(`#gameArea`).css("border-radius", "10px");
+			$(`#gameArea`).css("width", "100%");
+			
+			if(gameStart){
+				backgroundColor("black");
+				Score = 0;
+				frame = 0;
+				gameSpeed = 4;
+				Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
+				Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
+				Duck = new component(10, 10, "yellow", gameArea.canvas.width + 300, (gameArea.canvas.height - 50), "collectable");
+			
+			}
 		}
 	}
 }
@@ -144,7 +147,7 @@ function updateGameArea() {
 		} else {
 			storeScreen();
 		}
-	} else if(gameStart){
+	} else {
 		gameArea.clear();
 		backgroundColor("black");
 		updateScore();
@@ -284,7 +287,7 @@ function titleScreen() {
 	ctx.fillText("STORE", canvas.width - 200, 160, 146, 70);
 
 	//HANDLE INPUT
-	if(gameArea.key == 87){gameStart = true;}
+	if(gameArea.key == 87){beginSelectedGame("Jump");}
 	if(gameArea.key == 83){storeOpen = true;}
 }
 

@@ -89,7 +89,7 @@ function titleScreen() {
 	
 	  ctx.fillStyle = "white";
 	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", 313, 217);
+	  ctx.fillText("Play", (canvas.width - 170), 217);
 	
 	  ctx.fillStyle = "red";
 	  ctx.font = "70px Arial";
@@ -115,42 +115,11 @@ function hoverButtonStart() {
 	
 	  ctx.fillStyle = "white";
 	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", (canvas.width - 175), 217);
+	  ctx.fillText("Play", (canvas.width - 170), 217);
 	}
 
 }
 
-function hoverButtonMM() {
-	if(gameOpen){ 
-	  var canvas = document.getElementById("gameArea");
-	  var ctx = canvas.getContext("2d");
-	
-	  ctx.globalCompositeOperation = 'destination-under'
-	
-	  ctx.fillStyle = "#525252";
-	  ctx.fillRect((canvas.width - 192), 153, 170, 94);
-	
-	  ctx.fillStyle = "white";
-	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", (canvas.width - 175), 217);
-	}
-
-}
-function hoverButtonRetry() {
-	if(gameOpen){   
-	  var canvas = document.getElementById("gameArea");
-	  var ctx = canvas.getContext("2d");
-	
-	  ctx.globalCompositeOperation = 'destination-under'
-	
-	  ctx.fillStyle = "#525252";
-	  ctx.fillRect((canvas.width - 192), 153, 170, 94);
-	
-	  ctx.fillStyle = "white";
-	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", 313, 217);
-	}
-}
 
 
 function getRelativeCoordinates(event, element) {
@@ -166,7 +135,7 @@ function getRelativeCoordinates(event, element) {
 var gameArea = {
   	canvas : document.createElement("canvas"),
   	start : function() {
-        this.canvas.width = 800;
+        this.canvas.width = 810;
         this.canvas.height = 270;
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);

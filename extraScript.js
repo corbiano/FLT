@@ -139,7 +139,7 @@ var gameArea = {
         this.canvas.height = 270;
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);
-        this.interval = setInterval(updateGameArea, 30);
+        this.interval = setInterval(updateGameArea, 25);
         window.addEventListener('mousemove', mouseMove, true)
       	window.addEventListener('keydown', keyDown, true)
         window.addEventListener('keyup', keyUp, true)

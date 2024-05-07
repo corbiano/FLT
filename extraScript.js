@@ -449,7 +449,7 @@ function openGame() {
 		`);
 		
 		gameOpen = true;
-		beginSelectedGame('test');
+		beginSelectedGame("Jump");
 	}
 }
     

@@ -384,7 +384,7 @@ function updateGameArea() {
 	      if (Sup.x < -30){
 	        var rand = (Math.floor(Math.random() * 200) + 100);
 	        Sup.x = (gameArea.canvas.width + rand);
-	        gameSpeed += 0.1
+	        gameSpeed += 0.05
 	      }
 	      Sup.update();
 	

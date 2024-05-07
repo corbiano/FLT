@@ -341,8 +341,6 @@ function component(width, height, color, x, y, type) {
 
 
 function updateGameArea() {
-	console.log("Mouse X: " + String(mouseX) + `
-` + "Mouse Y: " + String(mouseY));
 	if(gameOpen){   
 	    if (!gameStart){
 	    gameArea.clear();

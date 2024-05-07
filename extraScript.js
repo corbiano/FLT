@@ -58,6 +58,7 @@ function beginSelectedGame(gameType) {
 	    gameArea.start();
 	    gameArea.canvas.id = "gameArea";
 	    $(`#gameArea`).css("margin", "auto");
+	    $(`#gameArea`).css("border-radius", "10px");
 	    $(`#gameArea`).css("width", "100%");
 	    if(gameStart){
 	            backgroundColor("black");

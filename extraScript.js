@@ -92,11 +92,11 @@ function titleScreen() {
 	
 	  ctx.fillStyle = "white";
 	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", (canvas.width / 2 - 85), 217);
+	  ctx.fillText("Play", (canvas.width / 2 - 65), 217);
 	
 	  ctx.fillStyle = "red";
 	  ctx.font = "70px Arial";
-	  ctx.fillText("Agent Jump", canvas.width / 2 - 165, 90);
+	  ctx.fillText("Agent Jump", canvas.width / 2 - 170, 90);
 	 
 	  ctx.fillStyle = "white";
 	  ctx.font = "15px Arial";
@@ -114,7 +114,7 @@ function titleScreen() {
 	  
 	  ctx.fillStyle = "white";
 	  ctx.font = "50px Arial";
-	  ctx.fillText("W", canvas.width - 86, 222, 146, 70);
+	  ctx.fillText("W", canvas.width - 90, 222, 146, 70);
 	  ctx.fillStyle = "white";
 	  ctx.font = "20px Arial";
 	  ctx.fillText("START", canvas.width - 95, 160, 146, 70);
@@ -126,10 +126,10 @@ function titleScreen() {
 
 	  ctx.fillStyle = "white";
 	  ctx.font = "50px Arial";
-	  ctx.fillText("S", canvas.width - 186, 222, 146, 70);
+	  ctx.fillText("S", canvas.width - 180, 222, 146, 70);
 	  ctx.fillStyle = "white";
 	  ctx.font = "20px Arial";
-	  ctx.fillText("STORE", canvas.width - 195, 160, 146, 70);
+	  ctx.fillText("STORE", canvas.width - 200, 160, 146, 70);
 	}
 }
 

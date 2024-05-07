@@ -58,7 +58,7 @@ function beginSelectedGame(gameType) {
 	    gameArea.start();
 	    gameArea.canvas.id = "gameArea";
 	    $(`#gameArea`).css("margin", "auto");
-	    //$(`#gameArea`).css("width", "100%");
+	    $(`#gameArea`).css("width", "100%");
 	    if(gameStart){
 	            backgroundColor("black");
 	            Score = 0;

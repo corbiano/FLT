@@ -93,7 +93,7 @@ function titleScreen() {
 	
 	  ctx.fillStyle = "red";
 	  ctx.font = "70px Arial";
-	  ctx.fillText("Agent Jump", 60, 90);
+	  ctx.fillText("Agent Jump", canvas.width / 2 - 100, 90);
 	 
 	  ctx.fillStyle = "white";
 	  ctx.font = "15px Arial";
@@ -166,7 +166,7 @@ function getRelativeCoordinates(event, element) {
 var gameArea = {
   	canvas : document.createElement("canvas"),
   	start : function() {
-        this.canvas.width = 650;
+        this.canvas.width = 750;
         this.canvas.height = 270;
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);
@@ -217,19 +217,19 @@ function failScreen() {
 	  if(Score < 10){
 	    ctx.fillStyle = "red";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("AUTOFAIL", 80, 100);
+	    ctx.fillText("AUTOFAIL", canvas.width / 2 - 100, 100);
 	  } else if(Score >= 10 && Score < 50) {
 	    ctx.fillStyle = "orange";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("KEEP TRYING", 60, 100);
+	    ctx.fillText("KEEP TRYING", canvas.width / 2 - 100, 100);
 	  } else if(Score >= 50 && Score < 100) {
 	    ctx.fillStyle = "green";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("GOOD JOB", 80, 100);
+	    ctx.fillText("GOOD JOB", canvas.width / 2 - 100, 100);
 	  } else if(Score >= 100) {
 	    ctx.fillStyle = "white";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("YOU WIN", 90, 100);
+	    ctx.fillText("YOU WIN", canvas.width / 2 - 100, 100);
 	  }
 	  
 	  ctx.fillStyle = "white";

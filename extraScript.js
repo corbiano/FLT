@@ -93,7 +93,7 @@ function titleScreen() {
 	
 	  ctx.fillStyle = "red";
 	  ctx.font = "70px Arial";
-	  ctx.fillText("Agent Jump", canvas.width / 2 - 200, 90);
+	  ctx.fillText("Agent Jump", canvas.width / 2 - 170, 90);
 	 
 	  ctx.fillStyle = "white";
 	  ctx.font = "15px Arial";
@@ -115,7 +115,7 @@ function hoverButtonStart() {
 	
 	  ctx.fillStyle = "white";
 	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", 313, 217);
+	  ctx.fillText("Play", (canvas.width - 175), 217);
 	}
 
 }
@@ -217,27 +217,27 @@ function failScreen() {
 	  if(Score < 10){
 	    ctx.fillStyle = "red";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("AUTOFAIL", canvas.width / 2 - 200, 100);
+	    ctx.fillText("AUTOFAIL", canvas.width / 2 - 170, 100);
 	  } else if(Score >= 10 && Score < 50) {
 	    ctx.fillStyle = "orange";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("KEEP TRYING", canvas.width / 2 - 200, 100);
+	    ctx.fillText("KEEP TRYING", canvas.width / 2 - 170, 100);
 	  } else if(Score >= 50 && Score < 100) {
 	    ctx.fillStyle = "green";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("GOOD JOB", canvas.width / 2 - 200, 100);
+	    ctx.fillText("GOOD JOB", canvas.width / 2 - 170, 100);
 	  } else if(Score >= 100) {
 	    ctx.fillStyle = "white";
 	    ctx.font = "70px Arial";
-	    ctx.fillText("YOU WIN", canvas.width / 2 - 200, 100);
+	    ctx.fillText("YOU WIN", canvas.width / 2 - 170, 100);
 	  }
 	  
 	  ctx.fillStyle = "white";
 	  ctx.font = "20px Arial";
 	  if(Score == 1)
-	    ctx.fillText("You collected " + String(Score) + " duck.", (canvas.width / 2 - 200), 155);
+	    ctx.fillText("You collected " + String(Score) + " duck.", (canvas.width / 2 - 150), 155);
 	  else
-	    ctx.fillText("You collected " + String(Score) + " ducks.", (canvas.width / 2 - 200), 150);
+	    ctx.fillText("You collected " + String(Score) + " ducks.", (canvas.width / 2 - 150), 150);
 	
 	  ctx.fillStyle = "white";
 	  ctx.fillRect((canvas.width - 100), 170, 70, 70);

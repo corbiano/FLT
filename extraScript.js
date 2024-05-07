@@ -11,6 +11,7 @@ var mousePressed = false;
 var highScore = 0;
 var lastScore = 0;
 var killedBy = "";
+var wallet = "";
 
 
 var gameOpen = false;
@@ -55,6 +56,7 @@ function closeGame() {
 function beginSelectedGame(gameType) {
 	if(gameOpen){
 	    highScore = localStorage.getItem("highScore");
+	    wallet = localStorage.getItem("currentDucks");
 	    gameArea.start();
 	    gameArea.canvas.id = "gameArea";
 	    $(`#gameArea`).css("margin", "auto");
@@ -101,6 +103,7 @@ function titleScreen() {
 	  ctx.fillText("High score: " + String(localStorage.getItem("highScore")), 10, 170);
 	  ctx.fillText("Last run: " + String(localStorage.getItem("lastScore")), 10, 200);
 	  ctx.fillText("Killed by: " + String(localStorage.getItem("killedBy")), 10, 230);
+	  ctx.fillText("Current Ducks: " + String(localStorage.getItem("currentDucks")), 10, 260);
 	}
 }
 
@@ -340,6 +343,7 @@ function updateGameArea() {
 	  } else if (Agent.crashWith(Sup)) {  
 	    gameArea.clear();
 	    localStorage.setItem("lastScore", Score);
+	    //localStorage.setItem("currentDucks", );
 	    localStorage.setItem("killedBy", "Sup");
 	    if(Score > localStorage.getItem("highScore"))
 	      localStorage.setItem("highScore", Score);

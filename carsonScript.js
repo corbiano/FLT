@@ -1354,7 +1354,7 @@ The information in this section will be saved automatically and restored when lo
 	if(backgroundGif)
 	    $("body").css("background-image", `url("https://corbiano.github.io/FLT/space_template.gif")`);
 	else
-	    $("body").css("background-image", `linear-gradient(45deg, #2b2b2b, #2b2b2b)`);
+	    $("body").css("background-image", `linear-gradient(45deg, #121212, #121212)`);
 	
     }
 

@@ -287,7 +287,7 @@ function titleScreen() {
 	ctx.fillText("STORE", canvas.width - 200, 160, 146, 70);
 
 	//HANDLE INPUT
-	if(gameArea.key == 87){beginSelectedGame("Jump");}
+	if(gameArea.key == 87){gameStart = true; beginSelectedGame("Jump");}
 	if(gameArea.key == 83){storeOpen = true;}
 }
 

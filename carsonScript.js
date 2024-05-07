@@ -150,7 +150,7 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
 <button type="submit" class="templatebutton" id="noteButton" onclick="beginInteraction()">Begin</button>
 	
 `);
-$(`.sectiontitle`).first().append(`<input type="checkbox" id="backToggle" checked=true onclick='handleBG();'>BG Gif</input>`)
+$(`.sectiontitle`).first().append(`<input type="checkbox" id="backToggle" checked=true onclick='handleBG();'>`)
 
 
     try {

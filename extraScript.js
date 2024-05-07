@@ -92,7 +92,7 @@ function titleScreen() {
 	
 	  ctx.fillStyle = "white";
 	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", (canvas.width - 170), 217);
+	  ctx.fillText("Play", (canvas.width / 2 - 85), 217);
 	
 	  ctx.fillStyle = "red";
 	  ctx.font = "70px Arial";
@@ -120,6 +120,11 @@ function titleScreen() {
 	  ctx.fillText("START", canvas.width - 95, 160, 146, 70);
 
 	  ctx.fillStyle = "white";
+	  ctx.fillRect((canvas.width - 200), 170, 70, 70);
+	  ctx.fillStyle = "#2b2b2b";
+	  ctx.fillRect((canvas.width - 197), 173, 64, 64);
+
+	  ctx.fillStyle = "white";
 	  ctx.font = "50px Arial";
 	  ctx.fillText("S", canvas.width - 186, 222, 146, 70);
 	  ctx.fillStyle = "white";
@@ -136,11 +141,11 @@ function hoverButtonStart() {
 	  ctx.globalCompositeOperation = 'destination-under'
 	
 	  ctx.fillStyle = "#525252";
-	  ctx.fillRect((canvas.width - 192), 153, 170, 94);
+	  ctx.fillRect((canvas.width / 2 - 85), 153, 170, 94);
 	
 	  ctx.fillStyle = "white";
 	  ctx.font = "60px Arial";
-	  ctx.fillText("Play", (canvas.width - 170), 217);
+	  ctx.fillText("Play", (canvas.width / 2 - 85), 217);
 	}
 
 }

@@ -77,25 +77,19 @@ function beginSelectedGame(gameType) {
 function titleScreen() {
 	var canvas = document.getElementById("gameArea");
 	var ctx = canvas.getContext("2d");
-	
+
+	//BACKGROUND
 	ctx.globalCompositeOperation = 'destination-under'
-	
 	ctx.fillStyle = "black";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 	
-	ctx.fillStyle = "white";
-	ctx.fillRect((canvas.width / 2 - 88), 150, 176, 100);
-	ctx.fillStyle = "#2b2b2b";
-	ctx.fillRect((canvas.width / 2 - 85), 153, 170, 94);
-	
-	ctx.fillStyle = "white";
-	ctx.font = "60px Arial";
-	ctx.fillText("Play", (canvas.width / 2 - 62), 217);
-	
+	//TITLE
 	ctx.fillStyle = "red";
 	ctx.font = "70px Arial";
 	ctx.fillText("Agent Jump", canvas.width / 2 - 180, 90);
-	
+
+	//RUN INFO
 	ctx.fillStyle = "white";
 	ctx.font = "15px Arial";
 	ctx.fillText("High score: " + String(localStorage.getItem("highScore")), 10, 170);
@@ -103,31 +97,32 @@ function titleScreen() {
 	ctx.fillText("Killed by: " + String(localStorage.getItem("killedBy")), 10, 230);
 	ctx.fillText("Current Ducks: " + String(localStorage.getItem("currentDucks")), 10, 260);
 	
-	
+	//START BUTTON
 	ctx.fillStyle = "white";
 	ctx.fillRect((canvas.width - 100), 170, 70, 70);
 	ctx.fillStyle = "#2b2b2b";
 	ctx.fillRect((canvas.width - 97), 173, 64, 64);
-	
-	
 	ctx.fillStyle = "white";
 	ctx.font = "50px Arial";
 	ctx.fillText("W", canvas.width - 87, 222, 146, 70);
 	ctx.fillStyle = "white";
 	ctx.font = "20px Arial";
 	ctx.fillText("START", canvas.width - 95, 160, 146, 70);
-	
+
+	//STORE BUTTON
 	ctx.fillStyle = "white";
 	ctx.fillRect((canvas.width - 200), 170, 70, 70);
 	ctx.fillStyle = "#2b2b2b";
 	ctx.fillRect((canvas.width - 197), 173, 64, 64);
-	
 	ctx.fillStyle = "white";
 	ctx.font = "50px Arial";
 	ctx.fillText("S", canvas.width - 182, 222, 146, 70);
 	ctx.fillStyle = "white";
 	ctx.font = "20px Arial";
 	ctx.fillText("STORE", canvas.width - 200, 160, 146, 70);
+
+	if(gameArea.key == 87){gameStart = true;}
+	if(gameArea.key == 83){storeOpen = true;}
 }
 
 
@@ -146,7 +141,37 @@ function hoverButtonStart() {
 }
 
 
-//function storeScreen(){}
+function storeScreen(){
+	var canvas = document.getElementById("gameArea");
+	var ctx = canvas.getContext("2d");
+	
+	//BACKGROUND
+	ctx.globalCompositeOperation = 'destination-under'
+	ctx.fillStyle = "black";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	
+	//TITLE
+	ctx.fillStyle = "white";
+	ctx.font = "50px Arial";
+	ctx.fillText("Store", canvas.width / 2 - 180, 90);
+	
+
+
+	//MENU BUTTON
+	ctx.fillStyle = "white";
+	ctx.fillRect((canvas.width - 100), 170, 70, 70);
+	ctx.fillStyle = "#2b2b2b";
+	ctx.fillRect((canvas.width - 97), 173, 64, 64);
+	ctx.fillStyle = "white";
+	ctx.font = "50px Arial";
+	ctx.fillText("M", canvas.width - 87, 222, 146, 70);
+	ctx.fillStyle = "white";
+	ctx.font = "20px Arial";
+	ctx.fillText("MENU", canvas.width - 95, 160, 146, 70);
+
+	if(gameArea.key == 77){storeOpen = false;}
+}
 
 
 function getRelativeCoordinates(event, element) {
@@ -312,12 +337,16 @@ function component(width, height, color, x, y, type) {
 function updateGameArea() {
 	if (!gameStart){
 		gameArea.clear();
-		titleScreen();
-		
+		if(!storeOpen){
+			titleScreen();
+		} else {
+			storeScreen();
+		}
 	} else if (Agent.crashWith(Sup)) {  
 		gameArea.clear();
 		localStorage.setItem("lastScore", Score);
-		//localStorage.setItem("currentDucks", );
+		tempDuck = wallet + score;
+		localStorage.setItem("currentDucks", tempDuck);
 		localStorage.setItem("killedBy", "Sup");
 		if(Score > localStorage.getItem("highScore"))
 			localStorage.setItem("highScore", Score);

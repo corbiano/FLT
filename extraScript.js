@@ -235,9 +235,9 @@ function failScreen() {
 	  ctx.fillStyle = "white";
 	  ctx.font = "20px Arial";
 	  if(Score == 1)
-	    ctx.fillText("You collected " + String(Score) + " duck.", 145, 155);
+	    ctx.fillText("You collected " + String(Score) + " duck.", (canvas.width / 2 - 200), 155);
 	  else
-	    ctx.fillText("You collected " + String(Score) + " ducks.", 145, 150);
+	    ctx.fillText("You collected " + String(Score) + " ducks.", (canvas.width / 2 - 200), 150);
 	
 	  ctx.fillStyle = "white";
 	  ctx.fillRect((canvas.width - 100), 170, 70, 70);

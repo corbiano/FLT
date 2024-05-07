@@ -388,7 +388,8 @@ function updateGameArea() {
 	
 	      Agent.newPos();
 	      Agent.update();
-	
+	      console.log("Mouse X: " + String(mouseX) + `
+` + "Mouse Y: " + String(mouseY));
 	      updateScore();
 	
 	  }

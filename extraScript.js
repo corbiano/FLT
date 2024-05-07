@@ -86,9 +86,9 @@ function titleScreen() {
 	  ctx.fillRect(0, 0, canvas.width, canvas.height);
 	
 	  ctx.fillStyle = "white";
-	  ctx.fillRect((canvas.width - 195), 150, 176, 100);
+	  ctx.fillRect((canvas.width / 2 - 88), 150, 176, 100);
 	  ctx.fillStyle = "#2b2b2b";
-	  ctx.fillRect((canvas.width - 192), 153, 170, 94);
+	  ctx.fillRect((canvas.width / 2 - 85), 153, 170, 94);
 	
 	  ctx.fillStyle = "white";
 	  ctx.font = "60px Arial";
@@ -104,6 +104,27 @@ function titleScreen() {
 	  ctx.fillText("Last run: " + String(localStorage.getItem("lastScore")), 10, 200);
 	  ctx.fillText("Killed by: " + String(localStorage.getItem("killedBy")), 10, 230);
 	  ctx.fillText("Current Ducks: " + String(localStorage.getItem("currentDucks")), 10, 260);
+
+
+	  ctx.fillStyle = "white";
+	  ctx.fillRect((canvas.width - 100), 170, 70, 70);
+	  ctx.fillStyle = "#2b2b2b";
+	  ctx.fillRect((canvas.width - 97), 173, 64, 64);
+	
+	  
+	  ctx.fillStyle = "white";
+	  ctx.font = "50px Arial";
+	  ctx.fillText("W", canvas.width - 86, 222, 146, 70);
+	  ctx.fillStyle = "white";
+	  ctx.font = "20px Arial";
+	  ctx.fillText("START", canvas.width - 95, 160, 146, 70);
+
+	  ctx.fillStyle = "white";
+	  ctx.font = "50px Arial";
+	  ctx.fillText("S", canvas.width - 186, 222, 146, 70);
+	  ctx.fillStyle = "white";
+	  ctx.font = "20px Arial";
+	  ctx.fillText("STORE", canvas.width - 195, 160, 146, 70);
 	}
 }
 

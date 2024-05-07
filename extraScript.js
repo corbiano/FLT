@@ -166,7 +166,7 @@ function getRelativeCoordinates(event, element) {
 var gameArea = {
   	canvas : document.createElement("canvas"),
   	start : function() {
-        this.canvas.width = 480;
+        this.canvas.width = 650;
         this.canvas.height = 270;
    	    this.context = this.canvas.getContext("2d");
    	    $(`#gameWindow`).append(this.canvas);

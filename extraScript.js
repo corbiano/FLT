@@ -25,31 +25,77 @@ $(`#Frontline_IconsTopDefault`).append(`
 </div>
 `);
 
-
-function openGame() {
-	if(!gameOpen){
-		gameOpen = true;
-		$(`.container-half`).first().append(`
-		<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
-		<div class="sectiontitle borderdark" id="gameTitle" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
-		<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
-		</div>
-		</div>
-		`);
-		beginSelectedGame('test');
+var gameArea = {
+	canvas : document.createElement("canvas"),
+	start : function() {
+		this.canvas.width = 810;
+		this.canvas.height = 270;
+		this.context = this.canvas.getContext("2d");
+		$(`#gameWindow`).append(this.canvas);
+		this.interval = setInterval(updateGameArea, 25);
+		window.addEventListener('keydown', keyDown, true);
+		window.addEventListener('keyup', keyUp, true);
+	},
+	clear : function() {
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	},
+	stop : function() {
+		clearInterval(this.interval);
 	}
 }
-    
-    
-function closeGame() {
-	gameArea.stop();
-	gameStart = false;
-	gameOpen = false;
-	clearInterval(updateGameArea);
-	window.removeEventListener('keydown', keyDown, true)
-	window.removeEventListener('keyup', keyUp, true)
-	$(`#gameWindow`).remove();
+
+
+function component(width, height, color, x, y, type) {
+	this.width = width;
+	this.height = height;
+	this.speedX = 0;
+	this.speedY = 0;
+	this.x = x;
+	this.y = y;
+	this.update = function(){
+		ctx = gameArea.context;
+		ctx.fillStyle = color;
+		ctx.fillRect(this.x, this.y, this.width, this.height);
+	}
+	this.newPos = function() {
+		this.x += this.speedX;
+		this.y += this.speedY;
+	}
+	
+	this.jump = function(){
+		if(isOnFloor && type == "player")
+		this.speedY = -15;
+	}
+	this.floorCheck = function(){
+		if(this.y >= (gameArea.canvas.height * 0.75)){
+			this.y = (gameArea.canvas.height * 0.75);
+			isOnFloor = true;
+		} else {
+			isOnFloor = false;
+		}
+	
+	}
+	
+	this.crashWith = function(otherobj) {
+		var myleft = this.x;
+		var myright = this.x + (this.width);
+		var mytop = this.y;
+		var mybottom = this.y + (this.height);
+		var otherleft = otherobj.x;
+		var otherright = otherobj.x + (otherobj.width);
+		var othertop = otherobj.y;
+		var otherbottom = otherobj.y + (otherobj.height);
+		var crash = true;
+		if ((mybottom < othertop) ||
+		   (mytop > otherbottom) ||
+		   (myright < otherleft) ||
+		   (myleft > otherright)) {
+			crash = false;
+	}
+		return crash;
+	}
 }
+
 
 function beginSelectedGame(gameType) {
 	if(gameOpen){
@@ -73,6 +119,122 @@ function beginSelectedGame(gameType) {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//MAIN GAME LOOP
+
+function updateGameArea() {
+	if (!gameStart){
+		gameArea.clear();
+		if(!storeOpen){
+			titleScreen();
+		} else {
+			storeScreen();
+		}
+	} else if(gameStart){
+		gameArea.clear();
+		backgroundColor("black");
+		updateScore();
+
+		//SUP CODE
+		Sup.x -= gameSpeed;
+		Sup.speedY = 0;
+
+		if (Sup.x < -30){
+			var rand = (Math.floor(Math.random() * 200) + 100);
+			Sup.x = (gameArea.canvas.width + rand);
+			gameSpeed += 0.05
+		}
+
+		Sup.update();
+
+
+		//DUCK CODE
+		
+		if(Duck.x < -30){
+			var randX = (Math.floor(Math.random() * 500) + 300);
+			Duck.x = (gameArea.canvas.width + randX);
+			var randY = (-(Math.floor(Math.random() * 50)) - 50);
+			Duck.y = ((gameArea.canvas.height * 0.75) + randY);
+		}
+		
+		Duck.x -= gameSpeed;
+		Duck.speedY = 0;
+		Duck.update();
+
+		
+		
+		//AGENT CODE
+		Agent.floorCheck();
+		gravity();
+		
+		if (Agent.crashWith(Duck)) {
+			var randX = (Math.floor(Math.random() * 500) + 300);
+			Duck.x = (gameArea.canvas.width + randX);
+			var randY = (-(Math.floor(Math.random() * 50)) - 50);
+			Duck.y = ((gameArea.canvas.height * 0.75) + randY);
+			Score += 1;
+		}
+		
+		if (Agent.crashWith(Sup)) {  
+			gameArea.clear();
+			localStorage.setItem("lastScore", Score);
+			tempDuck = wallet + score;
+			localStorage.setItem("currentDucks", tempDuck);
+			localStorage.setItem("killedBy", "Sup");
+			
+			if(Score > localStorage.getItem("highScore")){
+				localStorage.setItem("highScore", Score);
+			}
+			
+			failScreen();
+		}
+
+		if (gameArea.key && gameArea.key == 87) {Agent.jump()};
+
+		Agent.newPos();
+		Agent.update();
+		
+	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//MENUS
 
 function titleScreen() {
 	var canvas = document.getElementById("gameArea");
@@ -121,24 +283,11 @@ function titleScreen() {
 	ctx.font = "20px Arial";
 	ctx.fillText("STORE", canvas.width - 200, 160, 146, 70);
 
+	//HANDLE INPUT
 	if(gameArea.key == 87){gameStart = true;}
 	if(gameArea.key == 83){storeOpen = true;}
 }
 
-
-function hoverButtonStart() {
-	var canvas = document.getElementById("gameArea");
-	var ctx = canvas.getContext("2d");
-	
-	ctx.globalCompositeOperation = 'destination-under'
-	
-	ctx.fillStyle = "#525252";
-	ctx.fillRect((canvas.width / 2 - 85), 153, 170, 94);
-	
-	ctx.fillStyle = "white";
-	ctx.font = "60px Arial";
-	ctx.fillText("Play", (canvas.width / 2 - 62), 217);
-}
 
 
 function storeScreen(){
@@ -170,55 +319,11 @@ function storeScreen(){
 	ctx.font = "20px Arial";
 	ctx.fillText("MENU", canvas.width - 95, 160, 146, 70);
 
+	//HANDLE INPUT
 	if(gameArea.key == 77){storeOpen = false;}
 }
 
 
-function getRelativeCoordinates(event, element) {
-	const rect = element.getBoundingClientRect();
-	const x = event.clientX - rect.left;
-	const y = event.clientY - rect.top;
-	return { x, y };
-}
-
-
-var gameArea = {
-	canvas : document.createElement("canvas"),
-	start : function() {
-		this.canvas.width = 810;
-		this.canvas.height = 270;
-		this.context = this.canvas.getContext("2d");
-		$(`#gameWindow`).append(this.canvas);
-		this.interval = setInterval(updateGameArea, 25);
-		window.addEventListener('keydown', keyDown, true)
-		window.addEventListener('keyup', keyUp, true)
-	},
-	clear : function() {
-		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-	},
-	stop : function() {
-		clearInterval(this.interval);
-	}
-}
-
-function backgroundColor(color) {
-	var canvas = document.getElementById("gameArea");
-	var ctx = canvas.getContext("2d");
-	
-	ctx.globalCompositeOperation = 'destination-under'
-	
-	ctx.fillStyle = color;
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-
-function updateScore() {
-	var canvas = document.getElementById("gameArea");
-	var ctx = canvas.getContext("2d");
-	
-	ctx.fillStyle = "white";
-	ctx.font = "20px Arial";
-	ctx.fillText("Ducks: " + String(Score), 10, 30);
-}
 
 function failScreen() {
 	var canvas = document.getElementById("gameArea");
@@ -282,140 +387,77 @@ function failScreen() {
 	//HANDLE INPUT
 	if(gameArea.key && gameArea.key == 82){
 		resetGame();
-	else if (gameArea.key && gameArea.key == 77){
+	} else if (gameArea.key && gameArea.key == 77){
 		gameStart = false;
-		resetGameMenu();
+		mainMenu();
+	}
+	
 }
 
 
 
-function component(width, height, color, x, y, type) {
-	this.width = width;
-	this.height = height;
-	this.speedX = 0;
-	this.speedY = 0;
-	this.x = x;
-	this.y = y;
-	this.update = function(){
-		ctx = gameArea.context;
-		ctx.fillStyle = color;
-		ctx.fillRect(this.x, this.y, this.width, this.height);
-	}
-	this.newPos = function() {
-		this.x += this.speedX;
-		this.y += this.speedY;
-	}
+
+
+
+
+
+
 	
-	this.jump = function(){
-		if(isOnFloor && type == "player")
-		this.speedY = -15;
-	}
-	this.floorCheck = function(){
-		if(this.y >= (gameArea.canvas.height * 0.75)){
-			this.y = (gameArea.canvas.height * 0.75);
-			isOnFloor = true;
-		} else {
-			isOnFloor = false;
-		}
+
+
 	
-	}
-	
-	this.crashWith = function(otherobj) {
-		var myleft = this.x;
-		var myright = this.x + (this.width);
-		var mytop = this.y;
-		var mybottom = this.y + (this.height);
-		var otherleft = otherobj.x;
-		var otherright = otherobj.x + (otherobj.width);
-		var othertop = otherobj.y;
-		var otherbottom = otherobj.y + (otherobj.height);
-		var crash = true;
-		if ((mybottom < othertop) ||
-		(mytop > otherbottom) ||
-		(myright < otherleft) ||
-		(myleft > otherright)) {
-		crash = false;
-	}
-		return crash;
-	}
+
+// VARIOUS FUNCTION-ALITY
+
+function gravity() {
+	Agent.floorCheck();
+	if(!isOnFloor && gameOpen)
+		Agent.speedY += 0.7;
 }
 
-
-function updateGameArea() {
-	if (!gameStart){
-		gameArea.clear();
-		if(!storeOpen){
-			titleScreen();
-		} else {
-			storeScreen();
-		}
-	} else if(gameStart){
-		gameArea.clear();
-		backgroundColor("black");
-		updateScore();
-
-
-		//AGENT CODE
-		Agent.floorCheck();
-		gravity();
-		
-		if (Agent.crashWith(Duck)) {
-			var randX = (Math.floor(Math.random() * 500) + 300);
-			Duck.x = (gameArea.canvas.width + randX);
-			var randY = (-(Math.floor(Math.random() * 50)) - 50);
-			Duck.y = ((gameArea.canvas.height * 0.75) + randY);
-			Score += 1;
-		}
-		
-		if (Agent.crashWith(Sup)) {  
-			gameArea.clear();
-			localStorage.setItem("lastScore", Score);
-			tempDuck = wallet + score;
-			localStorage.setItem("currentDucks", tempDuck);
-			localStorage.setItem("killedBy", "Sup");
-			
-			if(Score > localStorage.getItem("highScore")){
-				localStorage.setItem("highScore", Score);
-			}
-			
-			failScreen();
-		}
-
-		if (gameArea.key && gameArea.key == 87) {Agent.jump()};
-
-		Agent.newPos();
-		Agent.update();
-
-
-		//SUP CODE
-		Sup.x -= gameSpeed;
-		Sup.speedY = 0;
-
-		if (Sup.x < -30){
-			var rand = (Math.floor(Math.random() * 200) + 100);
-			Sup.x = (gameArea.canvas.width + rand);
-			gameSpeed += 0.05
-		}
-
-		Sup.update();
-
-
-		//DUCK CODE
-		
-		if(Duck.x < -30){
-			var randX = (Math.floor(Math.random() * 500) + 300);
-			Duck.x = (gameArea.canvas.width + randX);
-			var randY = (-(Math.floor(Math.random() * 50)) - 50);
-			Duck.y = ((gameArea.canvas.height * 0.75) + randY);
-		}
-		
-		Duck.x -= gameSpeed;
-		Duck.speedY = 0;
-		Duck.update();
-		
-		
+function backgroundColor(color) {
+	var canvas = document.getElementById("gameArea");
+	var ctx = canvas.getContext("2d");
 	
+	ctx.globalCompositeOperation = 'destination-under'
+	
+	ctx.fillStyle = color;
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function updateScore() {
+	var canvas = document.getElementById("gameArea");
+	var ctx = canvas.getContext("2d");
+	
+	ctx.fillStyle = "white";
+	ctx.font = "20px Arial";
+	ctx.fillText("Ducks: " + String(Score), 10, 30);
+}
+
+function openGame() {
+	if(!gameOpen){
+		//add game window
+		$(`.container-half`).first().append(`
+		<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
+		<div class="sectiontitle borderdark" id="gameTitle" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
+		<button type="submit" class="templatebutton" onclick="closeGame()">Close</button>
+		</div>
+		</div>
+		`);
+		
+		gameOpen = true;
+		beginSelectedGame('test');
 	}
+}
+    
+    
+function closeGame() {
+	gameArea.stop();
+	gameStart = false;
+	gameOpen = false;
+	window.removeEventListener('keydown', keyDown, true)
+	window.removeEventListener('keyup', keyUp, true)
+	$(`#gameWindow`).remove();
 }
 
 function resetGame(){ 
@@ -428,7 +470,7 @@ function resetGame(){
 	beginSelectedGame();
 }
 
-function resetGameMenu(){
+function mainMenu(){
 	gameArea.stop();
 	gameArea.clear();
 	Score = 0;
@@ -440,21 +482,6 @@ function resetGameMenu(){
 	document.getElementById('gameWindow').removeChild(oldCanv);
 	beginSelectedGame();
 }
-
-
-function gravity() {
-	if(!isOnFloor && gameOpen)
-		Agent.speedY += 0.7;
-}
-
-/**
-function mouseMove(event){
-	const gameWindow = document.getElementById("gameWindow");
-	const coords = getRelativeCoordinates(event, gameWindow);
-	mouseX = coords.x;
-	mouseY = coords.y;
-}
-**/
 
 function keyDown(event){
 	gameArea.key = event.keyCode;

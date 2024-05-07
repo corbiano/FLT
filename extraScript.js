@@ -93,7 +93,7 @@ function titleScreen() {
 	
 	  ctx.fillStyle = "red";
 	  ctx.font = "70px Arial";
-	  ctx.fillText("Agent Jump", canvas.width / 2 - 160, 90);
+	  ctx.fillText("Agent Jump", canvas.width / 2 - 165, 90);
 	 
 	  ctx.fillStyle = "white";
 	  ctx.font = "15px Arial";

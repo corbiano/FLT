@@ -600,7 +600,7 @@ function backgroundColor(color) {
 
 	var my_gradient = ctx.createLinearGradient(0, 0, 170, 0);
 	my_gradient.addColorStop(0, "black");
-	my_gradient.addColorStop(1, "white");
+	my_gradient.addColorStop(1, "grey");
 	ctx.fillStyle = my_gradient;
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 		

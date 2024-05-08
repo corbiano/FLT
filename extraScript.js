@@ -608,6 +608,10 @@ function removeInput(){
 
 function resetStats(){
 
+  wallet = 0;
+  Score = 0;
+  wins = 0;
+  job = 0;
   localStorage.setItem("highScore", 0);
   localStorage.setItem("lastScore", 0);
   localStorage.setItem("currentDucks", 0);

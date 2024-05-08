@@ -359,7 +359,7 @@ function titleScreen() {
 
 	if(gameArea.key && gameArea.key == 69){
 
-		if(selectedColor = "green"){
+		if(selectedColor == "green"){
 			if(JSON.parse(localStorage.getItem("hasBlue")) == true){
 		  		selectedColor = "blue";
 	  		} else if(JSON.parse(localStorage.getItem("hasGold")) == true){
@@ -369,7 +369,7 @@ function titleScreen() {
 	  		} else {
 				selectedColor = "green";
 			}
-		} else if(selectedColor = "blue"){
+		} else if(selectedColor == "blue"){
 			if(JSON.parse(localStorage.getItem("hasGold")) == true){
 		  		selectedColor = "yellow";
 	  		} else if(JSON.parse(localStorage.getItem("hasPlat")) == true){
@@ -377,7 +377,7 @@ function titleScreen() {
 	  		} else {
 				selectedColor = "green";
 			}
-		} else if(selectedColor = "yellow"){
+		} else if(selectedColor == "yellow"){
 			if(JSON.parse(localStorage.getItem("hasPlat")) == true){
 		  		selectedColor = "silver";
 	  		} else {

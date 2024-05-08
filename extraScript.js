@@ -250,7 +250,8 @@ function updateGameArea() {
 		}
 
 		if (gameArea.key && gameArea.key == 87) {
-			
+
+			Agent.fullHop();
 			frame++;
 		
 		} else {

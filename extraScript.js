@@ -23,6 +23,7 @@ var selectedAgent = "";
 var wins;
 var job = 0;
 var selectedColor = "default";
+var hp = 1;
 
 
 //SHOP
@@ -147,6 +148,7 @@ function beginSelectedGame(gameType) {
         			failed = false;
 				Score = 0;
 				frame = 0;
+				hp = 1;
 				gameSpeed = 5;
 				Agent = new component(30, 30, selectedColor, ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
 				Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
@@ -245,7 +247,10 @@ function updateGameArea() {
 		
 		if (Agent.crashWith(Sup)) {  
 			gameArea.clear();
-      failed = true;
+			hp -= 1;
+			if(hp == 0){
+      				failed = true;
+			}
 		}
 
 		if (gameArea.key && gameArea.key == 87) {
@@ -652,6 +657,7 @@ function updateScore() {
 	ctx.fillStyle = "white";
 	ctx.font = "20px Arial";
 	ctx.fillText("Ducks: " + String(Score), 10, 30);
+	ctx.fillText("Lives: " + String(hp), 10, 60);
 }
 
 function openGame() {

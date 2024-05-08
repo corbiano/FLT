@@ -303,7 +303,7 @@ function titleScreen() {
 	var canvas = document.getElementById("gameArea");
 	var ctx = canvas.getContext("2d");
 
-	backgroundColor("black");
+	backgroundColor(bgColor);
 
 	
 	//TITLE
@@ -331,7 +331,7 @@ function titleScreen() {
 	ctx.fillStyle = "white";
 	ctx.font = "15px Arial";
 	ctx.fillText("E to Swap Outfit", 10, 90);
-	ctx.fillText("B to Swap BackGround", 10, 120);
+	ctx.fillText("B to Swap Background", 10, 120);
 	
 	
 	//START BUTTON

@@ -126,11 +126,7 @@ function beginSelectedGame(gameType) {
 			highScore = localStorage.getItem("highScore");
 			wallet = localStorage.getItem("currentDucks");
 			wins = localStorage.getItem("numWins");
-      job = localStorage.getItem("currentJob");
-			hasBlue = JSON.parse(localStorage.getItem("hasBlue"));
-			hasGold = JSON.parse(localStorage.getItem("hasBlue"));
-			hasPlat = JSON.parse(localStorage.getItem("hasBlue"));
-
+      			job = localStorage.getItem("currentJob");
 			gameArea.start();
 
 			gameArea.canvas.id = "gameArea";
@@ -376,27 +372,22 @@ function storeScreen(){
   ctx.font = "25px Arial";
 
 	
-  if(!hasBlue){
+  if(JSON.parse(localStorage.getItem("hasBlue")) == false){
 	  ctx.fillText("1. Blue Agent, 200 Ducks", 100, 100);
-	  console.log("DOES NOT HAVE");
   } else {
 	ctx.fillText("Owned!", 100, 100);
-	console.log("HAS");
   }
 	
-  if(!hasGold){
+  if(JSON.parse(localStorage.getItem("hasGold")) == false){
 	ctx.fillText("2. Gold Agent, 500 Ducks", 100, 160);
-	console.log("DOES NOT HAVE");
   } else {
 	ctx.fillText("Owned!", 100, 160);
-	  console.log("HAS");
   }
 	
-  if(!hasPlat){ 
+  if(JSON.parse(localStorage.getItem("hasPlat")) == false){ 
 	ctx.fillText("3. Platinum Agent, 1000 Ducks", 100, 220);
   } else {
 	ctx.fillText("Owned!", 100, 220);
-	  console.log("HAS");
   }
 
   //WALLET

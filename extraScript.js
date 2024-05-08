@@ -176,6 +176,7 @@ function beginSelectedGame(gameType) {
 //MAIN GAME LOOP
 
 function updateGameArea() {
+	console.log("Width: ");
 
 	if (!gameStart){
 
@@ -556,9 +557,9 @@ function failScreen() {
 	}
 
 	if(Number(localStorage.getItem("currentDucks")) == 1){
-		ctx.fillText("You now have " + localStorage.getItem("currentDucks") + " duck total.", (canvas.width / 2 - 130), 155);
+		ctx.fillText("You now have " + localStorage.getItem("currentDucks") + " duck total.", (canvas.width / 2 - 130), 175);
 	} else {
-		ctx.fillText("You now have " + localStorage.getItem("currentDucks") + " ducks total.", (canvas.width / 2 - 130), 155);
+		ctx.fillText("You now have " + localStorage.getItem("currentDucks") + " ducks total.", (canvas.width / 2 - 130), 175);
 	}
 
 	//MENU BUTTON

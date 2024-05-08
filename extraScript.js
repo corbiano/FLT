@@ -29,7 +29,7 @@ var hasBlue;
 var hasGold;
 var hasPlat;
 
-var bgColor = "black";
+var bgColor = "color1";
 
 
 //UI
@@ -355,17 +355,17 @@ function titleScreen() {
 
 	if(gameArea.key && gameArea.key == 66){
 		
-		if(bgColor = "black"){
+		if(bgColor = "color1"){
 
-			bgColor = "grey"
+			bgColor = "color2"
 			
-		} else if(bgColor = "grey"){
+		} else if(bgColor = "color2"){
 
-			bgColor = "brown"
+			bgColor = "color3"
 			
-		} else if(bgColor = "brown"){
+		} else if(bgColor = "color3"){
 
-			bgColor = "black"
+			bgColor = "color1"
 			
 		}
 	
@@ -590,8 +590,26 @@ function backgroundColor(color) {
 	
 	ctx.globalCompositeOperation = 'destination-under'
 	
+
+	if(color == "color1"){
+
 	ctx.fillStyle = color;
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
+		
+	} else if(color == "color2"){
+
+	var my_gradient = ctx.createLinearGradient(0, 0, 170, 0);
+	my_gradient.addColorStop(0, "black");
+	my_gradient.addColorStop(1, "white");
+	ctx.fillStyle = my_gradient;
+	ctx.fillRect(20, 20, 150, 100);
+		
+	} else if(color == "color3"){
+
+	ctx.fillStyle = color;
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+		
+	}
 }
 
 function handleBbackground() {

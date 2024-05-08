@@ -22,7 +22,7 @@ var wallet;
 var selectedAgent = "";
 var wins;
 var job = 0;
-var selectedColor = "default";
+var selectedColor = "green";
 var hp = 1;
 
 
@@ -359,7 +359,7 @@ function titleScreen() {
 
 	if(gameArea.key && gameArea.key == 69){
 
-		if(selectedColor = "default"){
+		if(selectedColor = "green"){
 			if(JSON.parse(localStorage.getItem("hasBlue")) == true){
 		  		selectedColor = "blue";
 	  		} else if(JSON.parse(localStorage.getItem("hasGold")) == true){
@@ -367,7 +367,7 @@ function titleScreen() {
 	  		} else if(JSON.parse(localStorage.getItem("hasPlat")) == true){
 		  		selectedColor = "silver";
 	  		} else {
-				selectedColor = "default";
+				selectedColor = "green";
 			}
 		} else if(selectedColor = "blue"){
 			if(JSON.parse(localStorage.getItem("hasGold")) == true){
@@ -375,16 +375,16 @@ function titleScreen() {
 	  		} else if(JSON.parse(localStorage.getItem("hasPlat")) == true){
 		  		selectedColor = "silver";
 	  		} else {
-				selectedColor = "default";
+				selectedColor = "green";
 			}
 		} else if(selectedColor = "Gold"){
 			if(JSON.parse(localStorage.getItem("hasPlat")) == true){
 		  		selectedColor = "silver";
 	  		} else {
-				selectedColor = "default";
+				selectedColor = "green";
 			}
 		} else {
-			selectedColor = "default";
+			selectedColor = "green";
 		}
 
 		

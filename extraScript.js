@@ -328,7 +328,7 @@ function titleScreen() {
 	ctx.fillRect(20, 70, 40, 40);
 	ctx.fillStyle = "white";
 	ctx.font = "15px Arial";
-	ctx.fillText("Press E to swap outfit.", 10, 50);
+	ctx.fillText("E to Swap", 10, 50);
 	
 	
 	//START BUTTON

@@ -357,8 +357,7 @@ function titleScreen() {
 
   	if(gameArea.key && gameArea.key == 222){resetStats()};
 
-	if(gameArea.key && gameArea.key == 69){
-
+	if(gameArea.key && gameArea.key == 69 && canSwap){
 		if(selectedColor == "green"){
 			if(JSON.parse(localStorage.getItem("hasBlue")) == true){
 		  		selectedColor = "blue";
@@ -387,10 +386,15 @@ function titleScreen() {
 			selectedColor = "green";
 		}
 
-		
+		canSwap = false;
+		frame++;
+		if(frame > 100){
+			frame = 0;
+			canSwap = true;
+		}
 	};
 
-	if(gameArea.key && gameArea.key == 66){
+	if(gameArea.key && gameArea.key == 66 && canSwap){
 		
 		if(bgColor == "color1"){
 
@@ -404,6 +408,13 @@ function titleScreen() {
 
 			bgColor = "color1"
 			
+		}
+
+		canSwap = false;
+		frame++;
+		if(frame > 100){
+			frame = 0;
+			canSwap = true;
 		}
 	
 	};

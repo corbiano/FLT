@@ -6,7 +6,7 @@ let inputModal = "";
 let outputModal = "";
 let group = ""
 let interactionType = ""
-let backgroundGif = true;
+let backgroundGif = false;
 let canRun = false;
 
 switch (document.title) {
@@ -150,7 +150,7 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
 <button type="submit" class="templatebutton" id="noteButton" onclick="beginInteraction()">Begin</button>
 	
 `);
-$(`.sectiontitle`).first().append(`<input type="checkbox" id="backToggle" checked=true onclick='handleBG();'>`)
+$(`.sectiontitle`).first().append(`<input type="checkbox" id="backToggle" checked=false onclick='handleBG();'>`)
 
 
     try {

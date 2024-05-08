@@ -416,24 +416,21 @@ function storeScreen(){
 	if(gameArea.key == 49 && !hasBlue){
 		if(wallet >= 200){
 			wallet -= 200;
-			hasBlue = true;
-			localStorage.setItem("hasBlue", hasBlue);
+			localStorage.setItem("hasBlue", true);
 		}
 	};
 
 	if(gameArea.key == 50 && !hasGold){
 		if(wallet >= 500){
 			wallet -= 500;
-			hasGold = true;
-			localStorage.setItem("hasGold", hasGold);
+			localStorage.setItem("hasGold", true);
 		}
 	};
 
 	if(gameArea.key == 51 && !hasPlat){
 		if(wallet >= 1000){
 			wallet -= 1000;
-			hasPlat = true;
-			localStorage.setItem("hasPlat", hasPlat);
+			localStorage.setItem("hasPlat", true);
 		}
 	};
 

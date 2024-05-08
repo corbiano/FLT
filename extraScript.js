@@ -598,7 +598,7 @@ function backgroundColor(color) {
 		
 	} else if(color == "color2"){
 
-	var my_gradient = ctx.createLinearGradient(0, 0, 170, 0);
+	var my_gradient = ctx.createLinearGradient(0, 0, 0, 170);
 	my_gradient.addColorStop(0, "black");
 	my_gradient.addColorStop(1, "grey");
 	ctx.fillStyle = my_gradient;
@@ -610,16 +610,6 @@ function backgroundColor(color) {
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 		
 	}
-}
-
-function handleBbackground() {
-	var canvas = document.getElementById("gameArea");
-	var ctx = canvas.getContext("2d");
-	
-	ctx.globalCompositeOperation = 'destination-under'
-	
-	ctx.fillStyle = color;
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function updateScore() {

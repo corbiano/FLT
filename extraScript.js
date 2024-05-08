@@ -404,7 +404,7 @@ function storeScreen(){
 	if(gameArea.key == 77){storeOpen = false;};
 	if(gameArea.key == 187){addMoney(10);};
 	
-	if(gameArea.key == 49 && JSON.parse(localStorage.getItem("hasPlat")){
+	if(gameArea.key == 49 && JSON.parse(localStorage.getItem("hasPlat"))){
 		if(Number(localStorage.getItem("currentDucks")) >= 200){
 			wallet -= 200;
 			localStorage.setItem("currentDucks", wallet);
@@ -412,7 +412,7 @@ function storeScreen(){
 		} else{console.log("You cant afford this...");}
 	};
 
-	if(gameArea.key == 50 && JSON.parse(localStorage.getItem("hasPlat")){
+	if(gameArea.key == 50 && JSON.parse(localStorage.getItem("hasPlat"))){
 		if(Number(localStorage.getItem("currentDucks")) >= 500){
 			wallet -= 500;
 			localStorage.setItem("currentDucks", wallet);
@@ -420,7 +420,7 @@ function storeScreen(){
 		} else{console.log("You cant afford this...");}
 	};
 
-	if(gameArea.key == 51 && JSON.parse(localStorage.getItem("hasPlat")){
+	if(gameArea.key == 51 && JSON.parse(localStorage.getItem("hasPlat"))){
 		if(Number(localStorage.getItem("currentDucks")) >= 1000){
 			wallet -= 1000;
 			localStorage.setItem("currentDucks", wallet);

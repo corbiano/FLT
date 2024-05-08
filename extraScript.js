@@ -349,7 +349,27 @@ function titleScreen() {
 
 	if(gameArea.key && gameArea.key == 83){storeOpen = true;}
 
-  if(gameArea.key && gameArea.key == 222){resetStats()};
+  	if(gameArea.key && gameArea.key == 222){resetStats()};
+
+	if(gameArea.key && gameArea.key == 69){resetStats()};
+
+	if(gameArea.key && gameArea.key == 66){
+		
+		if(bgColor = "black"){
+
+			bgColor = "grey"
+			
+		} else if(bgColor = "grey"){
+
+			bgColor = "brown"
+			
+		} else if(bgColor = "brown"){
+
+			bgColor = "black"
+			
+		}
+	
+	};
 
 }
 
@@ -360,9 +380,8 @@ function storeScreen(){
 	var ctx = canvas.getContext("2d");
 	
 	//BACKGROUND
-	ctx.globalCompositeOperation = 'destination-under'
-	ctx.fillStyle = "black";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	backgroundColor(bgColor);
+
 
 	
 	//TITLE
@@ -458,7 +477,7 @@ function storeScreen(){
 function failScreen() {
 	var canvas = document.getElementById("gameArea");
 	var ctx = canvas.getContext("2d");
-	backgroundColor("black");
+	backgroundColor(bgColor);
 	
 	
 	//FAIL SPLASH TITLE

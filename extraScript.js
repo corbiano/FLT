@@ -327,8 +327,9 @@ function titleScreen() {
   ctx.fillText("Current Position: " + getJob(), 10, 40);
 
 	//COLOR SWAPPER
-	ctx.fillStyle = "green";
+	ctx.fillStyle = selectedColor;
 	ctx.fillRect(20, 60, 40, 40);
+	
 	ctx.fillStyle = "white";
 	ctx.font = "15px Arial";
 	ctx.fillText("E to Swap Outfit", 10, 120);

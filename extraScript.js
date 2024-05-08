@@ -610,6 +610,9 @@ function resetStats(){
   localStorage.setItem("currentDucks", 0);
   localStorage.setItem("currentJob", 0);
   localStorage.setItem("numWins", 0);
+  localStorage.setItem("hasBlue", false);
+  localStorage.setItem("hasGold", false);
+  localStorage.setItem("hasPlat", false);
   
 
 }

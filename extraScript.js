@@ -593,7 +593,7 @@ function backgroundColor(color) {
 
 	if(color == "color1"){
 
-	ctx.fillStyle = color;
+	ctx.fillStyle = "black";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 		
 	} else if(color == "color2"){
@@ -602,11 +602,11 @@ function backgroundColor(color) {
 	my_gradient.addColorStop(0, "black");
 	my_gradient.addColorStop(1, "white");
 	ctx.fillStyle = my_gradient;
-	ctx.fillRect(20, 20, 150, 100);
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
 		
 	} else if(color == "color3"){
 
-	ctx.fillStyle = color;
+	ctx.fillStyle = "grey";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 		
 	}

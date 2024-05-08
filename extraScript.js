@@ -307,7 +307,7 @@ function titleScreen() {
 	//TITLE
 	ctx.fillStyle = "red";
 	ctx.font = "70px Arial";
-	ctx.fillText("Agent Jump", canvas.width / 2, 80);
+	ctx.fillText("Agent Jump", canvas.width / 2, 75);
 
 	//RUN INFO
 	ctx.fillStyle = "white";
@@ -322,6 +322,14 @@ function titleScreen() {
 
 	ctx.font = "20px Arial";
   ctx.fillText("Current Position: " + getJob(), 10, 40);
+
+	//COLOR SWAPPER
+	ctx.fillStyle = "green";
+	ctx.fillRect(20, 70, 40, 40);
+	ctx.fillStyle = "white";
+	ctx.font = "15px Arial";
+	ctx.fillText("Press E to swap outfit.", 10, 50);
+	
 	
 	//START BUTTON
 	makeButton((gameArea.canvas.width - 200), 180, 70, 70, "START", "W");

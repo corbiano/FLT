@@ -584,7 +584,7 @@ function setStats(points, money, position, wins){
   localStorage.setItem("lastScore", points);
 
   localStorage.setItem("currentDucks", "");
-  var tempDuck = (money + points);
+  var tempDuck = (int(money) + int(points));
   localStorage.setItem("currentDucks", tempDuck);
   localStorage.setItem("currentJob", position);
   localStorage.setItem("numWins", wins);

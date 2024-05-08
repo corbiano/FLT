@@ -393,11 +393,7 @@ function titleScreen() {
 		}
 
 		canSwap = false;
-		frame++;
-		if(frame > 100){
-			frame = 0;
-			canSwap = true;
-		}
+		
 	};
 
 	if(gameArea.key && gameArea.key == 66 && canSwap){
@@ -417,13 +413,18 @@ function titleScreen() {
 		}
 
 		canSwap = false;
-		frame++;
-		if(frame > 100){
-			frame = 0;
-			canSwap = true;
-		}
+		
 	
 	};
+
+		if(!canSwap){
+			frame++;
+			console.log(frame);
+			if(frame > 100){
+				frame = 0;
+				canSwap = true;
+			}
+		};
 
 }
 

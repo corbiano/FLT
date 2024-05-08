@@ -401,7 +401,7 @@ function storeScreen(){
 	if(gameArea.key == 77){storeOpen = false;};
 	if(gameArea.key == 187){addMoney(10);};
 	
-	if(gameArea.key == 49){
+	if(gameArea.key == 49 && !hasBlue){
 		if(wallet >= 200){
 			wallet -= 200;
 			hasBlue = true;
@@ -409,7 +409,7 @@ function storeScreen(){
 		}
 	};
 
-	if(gameArea.key == 50){
+	if(gameArea.key == 50 && !hasGold){
 		if(wallet >= 500){
 			wallet -= 500;
 			hasGold = true;
@@ -417,7 +417,7 @@ function storeScreen(){
 		}
 	};
 
-	if(gameArea.key == 51){
+	if(gameArea.key == 51 && !hasPlat){
 		if(wallet >= 1000){
 			wallet -= 1000;
 			hasPlat = true;

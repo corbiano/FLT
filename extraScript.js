@@ -123,10 +123,10 @@ function component(width, height, color, x, y, type) {
 function beginSelectedGame(gameType) {
 	if(gameType == "Jump"){
 		if(gameOpen){
-			highScore = localStorage.getItem("highScore");
-			wallet = localStorage.getItem("currentDucks");
-			wins = localStorage.getItem("numWins");
-      			job = localStorage.getItem("currentJob");
+			highScore = Number(localStorage.getItem("highScore"));
+			wallet = Number(localStorage.getItem("currentDucks"));
+			wins = Number(localStorage.getItem("numWins"));
+      			job = Number(localStorage.getItem("currentJob"));
 			gameArea.start();
 
 			gameArea.canvas.id = "gameArea";
@@ -407,6 +407,7 @@ function storeScreen(){
 	if(gameArea.key == 49 && !hasBlue){
 		if(wallet >= 200){
 			wallet -= 200;
+			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasBlue", true);
 		}
 	};
@@ -414,6 +415,7 @@ function storeScreen(){
 	if(gameArea.key == 50 && !hasGold){
 		if(wallet >= 500){
 			wallet -= 500;
+			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasGold", true);
 		}
 	};
@@ -421,6 +423,7 @@ function storeScreen(){
 	if(gameArea.key == 51 && !hasPlat){
 		if(wallet >= 1000){
 			wallet -= 1000;
+			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasPlat", true);
 		}
 	};

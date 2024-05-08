@@ -357,7 +357,7 @@ function storeScreen(){
 	//TITLE
 	ctx.fillStyle = "white";
 	ctx.font = "30px Arial";
-	ctx.fillText("Store", 10, 40);
+	ctx.fillText("Store", 20, 40);
 
 
   //SHOP
@@ -404,24 +404,24 @@ function storeScreen(){
 	if(gameArea.key == 77){storeOpen = false;};
 	if(gameArea.key == 187){addMoney(10);};
 	
-	if(gameArea.key == 49 && !hasBlue){
-		if(wallet >= 200){
+	if(gameArea.key == 49 && JSON.parse(localStorage.getItem("hasPlat")){
+		if(Number(localStorage.getItem("currentDucks")) >= 200){
 			wallet -= 200;
 			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasBlue", true);
 		} else{console.log("You cant afford this...");}
 	};
 
-	if(gameArea.key == 50 && !hasGold){
-		if(wallet >= 500){
+	if(gameArea.key == 50 && JSON.parse(localStorage.getItem("hasPlat")){
+		if(Number(localStorage.getItem("currentDucks")) >= 500){
 			wallet -= 500;
 			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasGold", true);
 		} else{console.log("You cant afford this...");}
 	};
 
-	if(gameArea.key == 51 && !hasPlat){
-		if(wallet >= 1000){
+	if(gameArea.key == 51 && JSON.parse(localStorage.getItem("hasPlat")){
+		if(Number(localStorage.getItem("currentDucks")) >= 1000){
 			wallet -= 1000;
 			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasPlat", true);

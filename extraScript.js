@@ -127,9 +127,9 @@ function beginSelectedGame(gameType) {
 			wallet = localStorage.getItem("currentDucks");
 			wins = localStorage.getItem("numWins");
       job = localStorage.getItem("currentJob");
-			hasBlue = localStorage.getItem("hasBlue");
-			hasGold = localStorage.getItem("hasGold");
-			hasPlat = localStorage.getItem("hasPlat");
+			hasBlue = JSON.parse(localStorage.getItem("hasBlue"));
+			hasGold = JSON.parse(localStorage.getItem("hasBlue"));
+			hasPlat = JSON.parse(localStorage.getItem("hasBlue"));
 
 			gameArea.start();
 
@@ -381,7 +381,7 @@ function storeScreen(){
 	  console.log("DOES NOT HAVE");
   } else {
 	ctx.fillText("Owned!", 100, 100);
-	console.log("DOES NOT HAVE");
+	console.log("HAS");
   }
 	
   if(!hasGold){
@@ -389,12 +389,14 @@ function storeScreen(){
 	console.log("DOES NOT HAVE");
   } else {
 	ctx.fillText("Owned!", 100, 160);
+	  console.log("HAS");
   }
 	
   if(!hasPlat){ 
 	ctx.fillText("3. Platinum Agent, 1000 Ducks", 100, 220);
   } else {
 	ctx.fillText("Owned!", 100, 220);
+	  console.log("HAS");
   }
 
   //WALLET
@@ -405,16 +407,7 @@ function storeScreen(){
 
 
 	//MENU BUTTON
-	ctx.fillStyle = "white";
-	ctx.fillRect((canvas.width - 100), 170, 70, 70);
-	ctx.fillStyle = "#2b2b2b";
-	ctx.fillRect((canvas.width - 97), 173, 64, 64);
-	ctx.fillStyle = "white";
-	ctx.font = "50px Arial";
-	ctx.fillText("M", canvas.width - 87, 222, 146, 70);
-	ctx.fillStyle = "white";
-	ctx.font = "20px Arial";
-	ctx.fillText("MENU", canvas.width - 95, 160, 146, 70);
+	makeButton((canvas.width - 100), 170, 70, 70, "MENU", "M");
 
 	//HANDLE INPUT
 	if(gameArea.key == 77){storeOpen = false;};

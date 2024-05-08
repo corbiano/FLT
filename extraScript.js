@@ -405,7 +405,9 @@ function storeScreen(){
 	if(gameArea.key == 187){addMoney(10);};
 	
 	if(gameArea.key == 49 && JSON.parse(localStorage.getItem("hasBlue"))){
+		console.log("pressed 1");
 		if(Number(localStorage.getItem("currentDucks")) >= 200){
+			console.log("passed check");
 			wallet = Number(localStorage.getItem("currentDucks"));
 			wallet -= 200;
 			localStorage.setItem("currentDucks", wallet);
@@ -414,7 +416,9 @@ function storeScreen(){
 	};
 
 	if(gameArea.key == 50 && JSON.parse(localStorage.getItem("hasGold"))){
+		console.log("pressed 2");
 		if(Number(localStorage.getItem("currentDucks")) >= 500){
+			console.log("passed check");
 			wallet = Number(localStorage.getItem("currentDucks"));
 			wallet -= 500;
 			localStorage.setItem("currentDucks", wallet);
@@ -423,7 +427,9 @@ function storeScreen(){
 	};
 
 	if(gameArea.key == 51 && JSON.parse(localStorage.getItem("hasPlat"))){
+		console.log("pressed 3");
 		if(Number(localStorage.getItem("currentDucks")) >= 1000){
+			console.log("passed check");
 			wallet = Number(localStorage.getItem("currentDucks"));
 			wallet -= 1000;
 			localStorage.setItem("currentDucks", wallet);

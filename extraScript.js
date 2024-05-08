@@ -525,7 +525,7 @@ function failScreen() {
 	} else if(Score >= 10 && Score < 50) {
 		ctx.fillStyle = "orange";
 		ctx.font = "70px Arial";
-		ctx.fillText("KEEP TRYING", canvas.width / 2 - 150, 100);
+		ctx.fillText("KEEP TRYING", canvas.width / 2 - 200, 100);
 	} else if(Score >= 50 && Score < 100) {
 		ctx.fillStyle = "green";
 		ctx.font = "70px Arial";
@@ -533,7 +533,7 @@ function failScreen() {
 	} else if(Score >= 100) {
 		ctx.fillStyle = "white";
 		ctx.font = "70px Arial";
-		ctx.fillText("YOU WIN", canvas.width / 2 - 170, 100);
+		ctx.fillText("YOU WIN", canvas.width / 2 - 150, 100);
 
 
 
@@ -553,6 +553,12 @@ function failScreen() {
 		ctx.fillText("You collected " + String(Score) + " duck.", (canvas.width / 2 - 100), 155);
 	} else {
 		ctx.fillText("You collected " + String(Score) + " ducks.", (canvas.width / 2 - 100), 150);
+	}
+
+	if(Number(localStorage.getItem("currentDucks")) == 1){
+		ctx.fillText("You now have " + localStorage.getItem("currentDucks") + " duck total.", (canvas.width / 2 - 130), 155);
+	} else {
+		ctx.fillText("You now have " + localStorage.getItem("currentDucks") + " ducks total.", (canvas.width / 2 - 130), 155);
 	}
 
 	//MENU BUTTON

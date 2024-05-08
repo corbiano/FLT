@@ -393,18 +393,24 @@ function storeScreen(){
 	if(gameArea.key == 77){storeOpen = false;};
 	
 	if(gameArea.key == 49){
-		hasBlue = true;
-		localStorage.setItem("hasBlue", hasBlue);
+		if(wallet >= 200){
+			hasBlue = true;
+			localStorage.setItem("hasBlue", hasBlue);
+		}
 	};
 
 	if(gameArea.key == 50){
-		hasGold = true;
-		localStorage.setItem("hasGold", hasGold);
+		if(wallet >= 500){
+			hasGold = true;
+			localStorage.setItem("hasGold", hasGold);
+		}
 	};
 
 	if(gameArea.key == 51){
-		hasPlat = true;
-		localStorage.setItem("hasPlat", hasPlat);
+		if(wallet >= 1000){
+			hasPlat = true;
+			localStorage.setItem("hasPlat", hasPlat);
+		}
 	};
 
 	
@@ -620,6 +626,12 @@ function setStats(points, money, position, wins){
   localStorage.setItem("currentJob", position);
   localStorage.setItem("numWins", wins);
 
+}
+
+function addMoney(money){
+	var tempMoney = localStorage.getItem("currentDucks");
+	tempMoney += money;
+	localStorage.setItem("currentDucks", tempMoney);
 }
 
 function getJob(){

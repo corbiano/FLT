@@ -12,6 +12,7 @@ var storeOpen = false;
 var failed = false;
 var inputAdded = false;
 var canPromote = false;
+var canSwap = true;
 
 
 //RUN STATS

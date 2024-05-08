@@ -364,16 +364,18 @@ function storeScreen(){
 	ctx.fillText("Owned!", 100, 100);
   ctx.fillStyle = "white";
   ctx.font = "25px Arial";
+	
   if(!hasGold)
 	ctx.fillText("2. Gold Agent, 500 Ducks", 100, 160);
   else
-	ctx.fillText("Owned!", 100, 100);
+	ctx.fillText("Owned!", 100, 160);
+	
   ctx.fillStyle = "white";
   ctx.font = "25px Arial";
   if(!hasPlat)
 	ctx.fillText("3. Platinum Agent, 1000 Ducks", 100, 220);
   else
-	ctx.fillText("Owned!", 100, 100);
+	ctx.fillText("Owned!", 100, 220);
 
 
   //WALLET
@@ -397,10 +399,11 @@ function storeScreen(){
 
 	//HANDLE INPUT
 	if(gameArea.key == 77){storeOpen = false;};
-	if(gameArea.key == 187){addMoney(100);};
+	if(gameArea.key == 187){addMoney(10);};
 	
 	if(gameArea.key == 49){
 		if(wallet >= 200){
+			wallet -= 200;
 			hasBlue = true;
 			localStorage.setItem("hasBlue", hasBlue);
 		}
@@ -408,6 +411,7 @@ function storeScreen(){
 
 	if(gameArea.key == 50){
 		if(wallet >= 500){
+			wallet -= 500;
 			hasGold = true;
 			localStorage.setItem("hasGold", hasGold);
 		}
@@ -415,6 +419,7 @@ function storeScreen(){
 
 	if(gameArea.key == 51){
 		if(wallet >= 1000){
+			wallet -= 1000;
 			hasPlat = true;
 			localStorage.setItem("hasPlat", hasPlat);
 		}

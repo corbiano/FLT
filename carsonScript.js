@@ -150,7 +150,7 @@ $(`#Frontline_InteractionDetails`).parent().parent().find(`.sectiontitle`).appen
 <button type="submit" class="templatebutton" id="noteButton" onclick="beginInteraction()">Begin</button>
 	
 `);
-$(`.sectiontitle`).first().append(`<input type="checkbox" id="backToggle" checked=false onclick='handleBG();'>`)
+$(`.sectiontitle`).first().append(`<input type="checkbox" id="backToggle" onclick='handleBG();'>`)
 
 
     try {
@@ -1452,7 +1452,7 @@ The information in this section will be saved automatically and restored when lo
 	
     function styleTemp(){
 
-	$("body").css("background-image", `url("https://corbiano.github.io/FLT/space_template.gif")`);
+	$("body").css("background-image", `linear-gradient(45deg, #121212, #121212)`);
 	$(`.docsmalllogo`).html("C̸̩͖̖͊͋̍A̴̡͖̿͋̓̈́͛̉͛̃͘͝Ŕ̶̨͔͉͛̇͋̌́̀̇̚ͅS̵̨̔̈́̓̀̈́͂O̴̖̮͂͋̋̐́̒̏̑͠͠N̶̗̞̬̹̙̤̙̻̭͐́̑̂̒̉͑͑̽͝S̸̡̮͔̻̬͚͈̝͈̋͜ ̴͎̦̗̓̎̇͗Ţ̷̯͒̃̀̐̔̃̐́͘È̶̡̞̗͓̻̐̐́̈́̎͆̊̉̕M̵̯̮̪̲̠̀̊P̵̳͌́̚͜Ḽ̸̙͍͙͇͖̤̬̤̒̓̑̑Ạ̴̢̡̑̇͆̓̔͛͂̓͠͠T̵̛̛̟̦̲͎̉̇͗̽̆͆̇̔Ȅ̵̱̮̯͑̓̄̀̔̽͜")
 	$('.sectiontitle').css("background-color", "#855672");
 	$('.container-left').css("background-color", "#00000");

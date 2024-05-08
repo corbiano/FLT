@@ -409,7 +409,7 @@ function storeScreen(){
 			wallet -= 200;
 			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasBlue", true);
-		}
+		} else{console.log("You cant afford this...");}
 	};
 
 	if(gameArea.key == 50 && !hasGold){
@@ -417,7 +417,7 @@ function storeScreen(){
 			wallet -= 500;
 			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasGold", true);
-		}
+		} else{console.log("You cant afford this...");}
 	};
 
 	if(gameArea.key == 51 && !hasPlat){
@@ -425,7 +425,7 @@ function storeScreen(){
 			wallet -= 1000;
 			localStorage.setItem("currentDucks", wallet);
 			localStorage.setItem("hasPlat", true);
-		}
+		} else{console.log("You cant afford this...");}
 	};
 
 	

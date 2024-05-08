@@ -81,7 +81,11 @@ function component(width, height, color, x, y, type) {
 		this.y += this.speedY;
 	}
 	
-	this.jump = function(){
+	this.shortHop = function(){
+		if(isOnFloor && type == "player")
+		this.speedY = -5;
+	}
+	this.fullHop = function(){
 		if(isOnFloor && type == "player")
 		this.speedY = -15;
 	}
@@ -245,7 +249,18 @@ function updateGameArea() {
       failed = true;
 		}
 
-		if (gameArea.key && gameArea.key == 87) {Agent.jump()};
+		if (gameArea.key && gameArea.key == 87) {
+			
+			frame++;
+		
+		} else {
+
+			if(frame > 0){
+				console.log(frame);
+				frame = 0;
+			}
+			
+		}
 
 		Agent.newPos();
 		Agent.update();

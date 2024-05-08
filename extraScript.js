@@ -363,7 +363,7 @@ function titleScreen() {
 			if(JSON.parse(localStorage.getItem("hasBlue")) == true){
 		  		selectedColor = "blue";
 	  		} else if(JSON.parse(localStorage.getItem("hasGold")) == true){
-		  		selectedColor = "Gold";
+		  		selectedColor = "yellow";
 	  		} else if(JSON.parse(localStorage.getItem("hasPlat")) == true){
 		  		selectedColor = "silver";
 	  		} else {
@@ -371,13 +371,13 @@ function titleScreen() {
 			}
 		} else if(selectedColor = "blue"){
 			if(JSON.parse(localStorage.getItem("hasGold")) == true){
-		  		selectedColor = "Gold";
+		  		selectedColor = "yellow";
 	  		} else if(JSON.parse(localStorage.getItem("hasPlat")) == true){
 		  		selectedColor = "silver";
 	  		} else {
 				selectedColor = "green";
 			}
-		} else if(selectedColor = "Gold"){
+		} else if(selectedColor = "yellow"){
 			if(JSON.parse(localStorage.getItem("hasPlat")) == true){
 		  		selectedColor = "silver";
 	  		} else {

@@ -25,6 +25,7 @@ var wins;
 var job = 0;
 var selectedColor = "green";
 var hp = 1;
+var secret = false;
 
 
 //SHOP
@@ -151,6 +152,8 @@ function beginSelectedGame(gameType) {
 				frame = 0;
 				hp = 1;
 				gameSpeed = 5;
+
+				
 				Agent = new component(30, 30, selectedColor, ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
 				Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
 				Duck = new component(10, 10, "yellow", gameArea.canvas.width + 300, (gameArea.canvas.height - 50), "collectable");
@@ -357,6 +360,8 @@ function titleScreen() {
 	if(gameArea.key && gameArea.key == 83){storeOpen = true;}
 
   	if(gameArea.key && gameArea.key == 222){resetStats()};
+	
+	if(gameArea.key && gameArea.key == 191){secret = true;};
 
 	if(gameArea.key && gameArea.key == 69 && canSwap){
 		if(selectedColor == "green"){
@@ -859,6 +864,14 @@ function mainMenu(){
   wallet = 0;
   gameStart = false;
   failed = false;
+}
+
+function secret(){
+	var canvas = document.getElementById("gameArea");
+	var ctx = canvas.getContext("2d");
+	
+	ctx.drawImage(`url("corbiano.github.io/FLT/secret_agent_mike.jpg")`, Agent.x, Agent.y);
+	
 }
 
 function keyDown(event){

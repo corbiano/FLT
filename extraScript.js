@@ -355,15 +355,15 @@ function titleScreen() {
 
 	if(gameArea.key && gameArea.key == 66){
 		
-		if(bgColor = "color1"){
+		if(bgColor == "color1"){
 
 			bgColor = "color2"
 			
-		} else if(bgColor = "color2"){
+		} else if(bgColor == "color2"){
 
 			bgColor = "color3"
 			
-		} else if(bgColor = "color3"){
+		} else if(bgColor == "color3"){
 
 			bgColor = "color1"
 			

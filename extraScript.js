@@ -327,11 +327,11 @@ function titleScreen() {
 
 	//COLOR SWAPPER
 	ctx.fillStyle = "green";
-	ctx.fillRect(20, 70, 40, 40);
+	ctx.fillRect(20, 60, 40, 40);
 	ctx.fillStyle = "white";
 	ctx.font = "15px Arial";
-	ctx.fillText("E to Swap Outfit", 10, 50);
-	ctx.fillText("B to Swap BackGround", 10, 70);
+	ctx.fillText("E to Swap Outfit", 10, 90);
+	ctx.fillText("B to Swap BackGround", 10, 120);
 	
 	
 	//START BUTTON

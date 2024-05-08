@@ -377,13 +377,16 @@ function storeScreen(){
 
 	
   if(!hasBlue){
-	ctx.fillText("1. Blue Agent, 200 Ducks", 100, 100);
+	  ctx.fillText("1. Blue Agent, 200 Ducks", 100, 100);
+	  console.log("DOES NOT HAVE");
   } else {
 	ctx.fillText("Owned!", 100, 100);
+	console.log("DOES NOT HAVE");
   }
 	
   if(!hasGold){
 	ctx.fillText("2. Gold Agent, 500 Ducks", 100, 160);
+	console.log("DOES NOT HAVE");
   } else {
 	ctx.fillText("Owned!", 100, 160);
   }
@@ -639,6 +642,9 @@ function getStats(){
   console.log(localStorage.getItem("currentDucks"));
   console.log(localStorage.getItem("currentJob"));
   console.log(localStorage.getItem("numWins"));
+  console.log(localStorage.setItem("hasBlue"));
+  console.log(localStorage.setItem("hasGold"));
+  console.log(localStorage.setItem("hasPlat"));
   
 
 }

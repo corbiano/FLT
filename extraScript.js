@@ -358,25 +358,25 @@ function storeScreen(){
 
   ctx.fillStyle = "white";
   ctx.font = "25px Arial";
-  if(!hasBlue)
-	ctx.fillText("1. Blue Agent, 200 Ducks", 100, 100);
-  else
-	ctx.fillText("Owned!", 100, 100);
-  ctx.fillStyle = "white";
-  ctx.font = "25px Arial";
-	
-  if(!hasGold)
-	ctx.fillText("2. Gold Agent, 500 Ducks", 100, 160);
-  else
-	ctx.fillText("Owned!", 100, 160);
-	
-  ctx.fillStyle = "white";
-  ctx.font = "25px Arial";
-  if(!hasPlat)
-	ctx.fillText("3. Platinum Agent, 1000 Ducks", 100, 220);
-  else
-	ctx.fillText("Owned!", 100, 220);
 
+	
+  if(!hasBlue){
+	ctx.fillText("1. Blue Agent, 200 Ducks", 100, 100);
+  } else {
+	ctx.fillText("Owned!", 100, 100);
+  }
+	
+  if(!hasGold){
+	ctx.fillText("2. Gold Agent, 500 Ducks", 100, 160);
+  } else {
+	ctx.fillText("Owned!", 100, 160);
+  }
+	
+  if(!hasPlat){ 
+	ctx.fillText("3. Platinum Agent, 1000 Ducks", 100, 220);
+  } else {
+	ctx.fillText("Owned!", 100, 220);
+  }
 
   //WALLET
   ctx.fillStyle = "white";

@@ -23,6 +23,13 @@ var selectedAgent = "";
 var wins;
 var job = 0;
 
+
+//SHOP
+var hasBlue;
+var hasGold;
+var hasPlat;
+
+
 //UI
 var button_1_W;
 var button_1_H;
@@ -116,6 +123,9 @@ function beginSelectedGame(gameType) {
 			wallet = localStorage.getItem("currentDucks");
 			wins = localStorage.getItem("numWins");
       job = localStorage.getItem("currentJob");
+			hasBlue = localStorage.getItem("hasBlue");
+			hasGold = localStorage.getItem("hasGold");
+			hasPlat = localStorage.getItem("hasPlat");
 
 			gameArea.start();
 
@@ -348,12 +358,15 @@ function storeScreen(){
 
   ctx.fillStyle = "white";
   ctx.font = "25px Arial";
+  if(!hasBlue)
 	ctx.fillText("1. Blue Agent, 200 Ducks", 100, 100);
   ctx.fillStyle = "white";
   ctx.font = "25px Arial";
+  if(!hasGold)
 	ctx.fillText("2. Gold Agent, 500 Ducks", 100, 160);
   ctx.fillStyle = "white";
   ctx.font = "25px Arial";
+  if(!hasPlat)
 	ctx.fillText("3. Platinum Agent, 1000 Ducks", 100, 220);
 
 
@@ -378,6 +391,24 @@ function storeScreen(){
 
 	//HANDLE INPUT
 	if(gameArea.key == 77){storeOpen = false;};
+	
+	if(gameArea.key == 49){
+		hasBlue = true;
+		localStorage.setItem("hasBlue", hasBlue);
+	};
+
+	if(gameArea.key == 50){
+		hasGold = true;
+		localStorage.setItem("hasGold", hasGold);
+	};
+
+	if(gameArea.key == 51){
+		hasPlat = true;
+		localStorage.setItem("hasPlat", hasPlat);
+	};
+
+	
+	
 
 }
 

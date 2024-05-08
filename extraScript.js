@@ -22,6 +22,7 @@ var wallet;
 var selectedAgent = "";
 var wins;
 var job = 0;
+var selectedColor = "default";
 
 
 //SHOP
@@ -147,7 +148,7 @@ function beginSelectedGame(gameType) {
 				Score = 0;
 				frame = 0;
 				gameSpeed = 5;
-				Agent = new component(30, 30, "green", ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
+				Agent = new component(30, 30, selectedColor, ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
 				Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
 				Duck = new component(10, 10, "yellow", gameArea.canvas.width + 300, (gameArea.canvas.height - 50), "collectable");
 			
@@ -351,7 +352,38 @@ function titleScreen() {
 
   	if(gameArea.key && gameArea.key == 222){resetStats()};
 
-	if(gameArea.key && gameArea.key == 69){resetStats()};
+	if(gameArea.key && gameArea.key == 69){
+
+		if(selectedColor = "default"){
+			if(JSON.parse(localStorage.getItem("hasBlue")) == true){
+		  		selectedColor = "blue";
+	  		} else if(JSON.parse(localStorage.getItem("hasGold")) == true){
+		  		selectedColor = "Gold";
+	  		} else if(JSON.parse(localStorage.getItem("hasPlat")) == true){
+		  		selectedColor = "silver";
+	  		} else {
+				selectedColor = "default";
+			}
+		} else if(selectedColor = "blue"){
+			if(JSON.parse(localStorage.getItem("hasGold")) == true){
+		  		selectedColor = "Gold";
+	  		} else if(JSON.parse(localStorage.getItem("hasPlat")) == true){
+		  		selectedColor = "silver";
+	  		} else {
+				selectedColor = "default";
+			}
+		} else if(selectedColor = "Gold"){
+			if(JSON.parse(localStorage.getItem("hasPlat")) == true){
+		  		selectedColor = "silver";
+	  		} else {
+				selectedColor = "default";
+			}
+		} else {
+			selectedColor = "default";
+		}
+
+		
+	};
 
 	if(gameArea.key && gameArea.key == 66){
 		

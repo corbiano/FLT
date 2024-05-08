@@ -176,7 +176,6 @@ function beginSelectedGame(gameType) {
 //MAIN GAME LOOP
 
 function updateGameArea() {
-	console.log("Width: " + String(gameArea.canvas.width) + "/n" + "Height: " + String(gameArea.canvas.height));
 
 	if (!gameStart){
 

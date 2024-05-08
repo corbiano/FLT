@@ -637,7 +637,7 @@ function setStats(points, money, position, wins){
 
 function addMoney(money){
 	var tempMoney = localStorage.getItem("currentDucks");
-	tempMoney += money;
+	tempMoney = Number(tempMoney) + Number(money);
 	localStorage.setItem("currentDucks", tempMoney);
 }
 

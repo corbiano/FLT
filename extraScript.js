@@ -246,7 +246,6 @@ function updateGameArea() {
 		}
 		
 		if (Agent.crashWith(Sup)) {  
-			gameArea.clear();
 			hp -= 1;
 			if(hp == 0){
       				failed = true;

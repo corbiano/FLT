@@ -29,6 +29,8 @@ var hasBlue;
 var hasGold;
 var hasPlat;
 
+var bgColor = "black";
+
 
 //UI
 var button_1_W;
@@ -140,8 +142,8 @@ function beginSelectedGame(gameType) {
 
 			if(gameStart){
 
-				backgroundColor("black");
-        failed = false;
+				backgroundColor(bgColor);
+        			failed = false;
 				Score = 0;
 				frame = 0;
 				gameSpeed = 5;
@@ -185,7 +187,7 @@ function updateGameArea() {
 	} else if(!failed) {
 
 		gameArea.clear();
-		backgroundColor("black");
+		backgroundColor(bgColor);
 		updateScore();
 
 		//SUP CODE
@@ -328,7 +330,8 @@ function titleScreen() {
 	ctx.fillRect(20, 70, 40, 40);
 	ctx.fillStyle = "white";
 	ctx.font = "15px Arial";
-	ctx.fillText("E to Swap", 10, 50);
+	ctx.fillText("E to Swap Outfit", 10, 50);
+	ctx.fillText("B to Swap BackGround", 10, 70);
 	
 	
 	//START BUTTON

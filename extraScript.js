@@ -716,7 +716,7 @@ function makeButton(x, y, w, h, type, key){
   ctx.fillStyle = "white";
   ctx.font = "50px Arial";
 
-  if(key == "W"){
+  if(key == "W" || key == "M"){
     ctx.fillText(key, x + 11, y + 53);
   } else {
     ctx.fillText(key, x + 19, y + 53);

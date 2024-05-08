@@ -332,7 +332,7 @@ function titleScreen() {
 
 	//COLOR SWAPPER
 	ctx.fillStyle = selectedColor;
-	ctx.fillRect(20, 60, 40, 40);
+	ctx.fillRect(10, 55, 40, 40);
 	
 	ctx.fillStyle = "white";
 	ctx.font = "15px Arial";

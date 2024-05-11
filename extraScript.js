@@ -60,7 +60,7 @@ var gameArea = {
 		this.context = this.canvas.getContext("2d");
 		$(`#gameWindow`).append(this.canvas);
 		$(`#gameWindow`).css("width", "100%");
-		this.interval = setInterval(updateGameArea, 25);
+		this.interval = setInterval(updateGameArea_Jump, 25);
 	},
 	clear : function() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -128,32 +128,32 @@ function component(width, height, color, x, y, type) {
 
 
 function beginSelectedGame(gameType) {
-	if(gameType == "Jump"){
+	if(gameType == "Jump")	
 		if(gameOpen){
 			highScore = Number(localStorage.getItem("highScore"));
 			wallet = Number(localStorage.getItem("currentDucks"));
 			wins = Number(localStorage.getItem("numWins"));
-      			job = Number(localStorage.getItem("currentJob"));
+			job = Number(localStorage.getItem("currentJob"));
 			gameArea.start();
-
+	
 			gameArea.canvas.id = "gameArea";
 			$(`#gameArea`).css("margin", "auto");
 			$(`#gameArea`).css("border-radius", "10px");
 			$(`#gameArea`).css("width", "100%");
-
-      if(!inputAdded){
-        addInput();
-      }
-
+	
+			if(!inputAdded){
+			  addInput();
+			}
+	
 			if(gameStart){
-
+	
 				backgroundColor(bgColor);
-        			failed = false;
+				failed = false;
 				Score = 0;
 				frame = 0;
 				hp = 1;
 				gameSpeed = 5;
-
+	
 				
 				Agent = new component(30, 30, selectedColor, ((gameArea.canvas.width / 2) - 15), ((gameArea.canvas.height * 0.75) - 110), "player");
 				Sup = new component(30, 40, "red", gameArea.canvas.width, ((gameArea.canvas.height * 0.75) + 5), "wall");
@@ -178,9 +178,9 @@ function beginSelectedGame(gameType) {
 
 
 
-//MAIN GAME LOOP
+//MAIN GAME LOOPs
 
-function updateGameArea() {
+function updateGameArea_Jump() {
 
 	if (!gameStart){
 
@@ -284,8 +284,6 @@ function updateGameArea() {
   //frame++;
   
 }
-
-
 
 
 
@@ -608,7 +606,7 @@ function failScreen() {
 	if(gameArea.key && gameArea.key == 82){
     failed = false;
     setStats(Score, wallet, job, wins);
-    resetGame();
+    resetGame("Jump");
   }
 
   if (gameArea.key && gameArea.key == 77){
@@ -673,6 +671,7 @@ function backgroundColor(color) {
 		
 	}
 }
+
 
 function updateScore() {
 	var canvas = document.getElementById("gameArea");
@@ -853,9 +852,9 @@ function resetGame(){
 	gameArea.clear();
 	Score = 0;
 	gameSpeed = 0;
-  wallet = 0;
-  failed = false;
-	beginSelectedGame("Jump");
+  	wallet = 0;
+  	failed = false;
+	beginSelectedGame();
 }
 
 function mainMenu(){ 
@@ -863,9 +862,9 @@ function mainMenu(){
 	gameArea.clear();
 	Score = 0;
 	gameSpeed = 0;
-  wallet = 0;
-  gameStart = false;
-  failed = false;
+  	wallet = 0;
+  	gameStart = false;
+  	failed = false;
 }
 
 function secret(){

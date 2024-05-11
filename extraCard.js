@@ -39,7 +39,7 @@ function updateCasino(){
 
   if (!BJstart && !PKstart){
 
-      CasinoMenu();
+      casinoMenu();
     
   }
 

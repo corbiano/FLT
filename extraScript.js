@@ -420,7 +420,7 @@ function titleScreen() {
 		if(!canSwap){
 			frame++;
 			console.log(frame);
-			if(frame > 100){
+			if(frame > 10){
 				frame = 0;
 				canSwap = true;
 			}

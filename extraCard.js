@@ -3,7 +3,7 @@ var gameOpen = false;
 var inputAdded = false;
 
 var BJstart = false;
-var PKStart = false;
+var PKstart = false;
 
 $(`#Frontline_IconsTopDefault`).append(`
 <div class="IconDefault headertext">

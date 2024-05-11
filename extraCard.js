@@ -73,7 +73,7 @@ function updateCasino(){
 
 
 function casinoMenu(){
-	var canvas = document.getElementById("gameArea");
+	var canvas = document.getElementById("cardArea");
 	var ctx = canvas.getContext("2d");
 	
 	ctx.globalCompositeOperation = 'destination-under'
@@ -107,16 +107,16 @@ function closeCasino() {
 
 function addInput(){
 
-  window.addEventListener('keydown', keyDown, true)
+  	window.addEventListener('keydown', keyDown, true)
 	window.addEventListener('keyup', keyUp, true)
-  inputAdded = true;
+  	inputAdded = true;
 
 }
 
 function removeInput(){
 
-  window.removeEventListener('keydown', keyDown, true)
+  	window.removeEventListener('keydown', keyDown, true)
 	window.removeEventListener('keyup', keyUp, true)
-  inputAdded = false;
+  	inputAdded = false;
 
 }

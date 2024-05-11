@@ -80,7 +80,7 @@ function casinoMenu(){
 	
 	ctx.globalCompositeOperation = 'destination-under'
 
-	ctx.drawImage(casinoBG, 0, 0);
+	ctx.drawImage(`url("corbiano.github.io/FLT/casinoBG.jpg")`, 0, 0);
 }
 
 function openCasino() {

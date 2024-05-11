@@ -94,6 +94,7 @@ function openCasino() {
 		
 		gameOpen = true;
 		cardArea.start();
+		cardArea.canvas.id = "cardArea";
 	}
 }
 

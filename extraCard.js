@@ -1,3 +1,5 @@
+var Deck = [];
+
 
 var gameOpen = false;
 var inputAdded = false;
@@ -41,7 +43,24 @@ function updateCasino(){
     
   } else {
 
-    casinoMenu();
+    if(!BJstart && !PKstart){
+	    
+	  casinoMenu();
+	    
+    } else if (BJstart && !PKstart){
+
+	  blackJack();
+	    
+    } else if (!BJstart && PKstart){
+
+	  poker();
+
+    } else {
+
+	BJstart = false;
+	PKstart = false;
+	    
+    }
 
   }
 
@@ -81,13 +100,10 @@ function casinoTitle(){
 	ctx.globalCompositeOperation = 'destination-under'
 
     const img = new Image;
-    img.src = "https://corbiano.github.io/FLT/casinoBG.jpg";
+    img.src = "https://corbiano.github.io/FLT/casinoTitle.jpg";
 	ctx.drawImage(img, 0, 0);
     //ctx.fillStyle = "black";
 	//ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-
-
 
 
     if(cardArea.key && cardArea.key == 13){
@@ -114,15 +130,66 @@ function casinoMenu(){
 
 
 
-    if(cardArea.key && cardArea.key == 13){
+    if(cardArea.key && cardArea.key == 49){
 
-        console.log("eh");
+        BJstart = true;
+        
+    }
+
+    if(cardArea.key && cardArea.key == 50){
+
+        PKstart = true;
+        
+    }
+
+    if(cardArea.key && cardArea.key == 51){
+
+        console.log("settings");
         
     }
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+function blackJack(){
+
+	gameBackground();
+	createDeck();
+
+	if(!betPlaced){
+
+		bet();
+		
+	} else {
+
+		dealBlackjack();
+		
+	}
+	
+}
+
+
+
+
+function poker(){
+
+
+	console.log("WIP");
+	PKstart = false;
+
+	
+}
 
 
 
@@ -178,6 +245,16 @@ function closeCasino() {
 	removeInput();
 	$(`#gameWindow`).remove();
 }
+
+
+function dealBlackjack(){
+
+	
+
+
+	
+}
+
 
 function addInput(){
 

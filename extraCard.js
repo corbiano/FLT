@@ -372,7 +372,7 @@ function makeButton(x, y, w, h, type, key){
   
   //BUTTON FUNCTION
   ctx.fillStyle = "white";
-  ctx.font = String(h - 20) + "px Arial";
+  ctx.font = String(h - 50) + "px Arial";
   var FtempWidth = ctx.measureText(type).width / 2;
   ctx.fillText(type, (midX - FtempWidth), (y - 10));
   

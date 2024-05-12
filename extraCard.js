@@ -5,6 +5,8 @@ var dealerCards = 0;
 var betAmount = 0;
 var betPlaced = false;
 
+var wallet = 0;
+
 
 var titleBG = "https://corbiano.github.io/FLT/casinoTitle.jpg";
 var menuBG = "https://corbiano.github.io/FLT/casinoMenu.jpg";
@@ -273,7 +275,7 @@ function bet(){
 	ctx.fillStyle = "white";
   	ctx.font = "20px Arial";
 	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 30);
-  	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 70);
+  	ctx.fillText("Wallet : " + String(betAmount), canvas.width / 2 - 50, 70);
 	
 	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");
 	makeButton(canvas.width / 2 - 72.5, canvas.height / 2, 70, 70, "+5", "2");
@@ -317,6 +319,12 @@ function bet(){
 	if(cardArea.key && cardArea.key == 77){
 
         	BJstart = false;
+        
+    	}
+
+	if(cardArea.key && cardArea.key == 13){
+
+        	betPlaced = true;
         
     	}
 	

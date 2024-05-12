@@ -280,7 +280,7 @@ function bet(){
   	ctx.font = "20px Arial";
 	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 30);
   	ctx.fillText("Wallet : " + String(wallet), 10, 30);
-	ctx.fillText("Press Enter to place bet.", canvas.width / 2 - 50, canvas.height - 50);
+	ctx.fillText("Press Enter to place bet.", canvas.width / 2 - 80, canvas.height - 20);
 	
 	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");
 	makeButton(canvas.width / 2 - 72.5, canvas.height / 2, 70, 70, "+5", "2");
@@ -359,6 +359,8 @@ function makeButton(x, y, w, h, type, key){
 
   var canvas = document.getElementById("cardArea");
   var ctx = canvas.getContext("2d");
+  var midX = (x + (w / 2));
+  var midY = (y + (h / 2));
 
   //OUTER BUTTON
   ctx.fillStyle = "white";
@@ -370,13 +372,16 @@ function makeButton(x, y, w, h, type, key){
   
   //BUTTON FUNCTION
   ctx.fillStyle = "white";
-  ctx.font = "20px Arial";
-  ctx.fillText(type, x + 3, y - 10);
+  ctx.font = String(h - 20) + "px Arial";
+  var FtempWidth = ctx.measureText(type).width / 2;
+  ctx.fillText(type, (midX - FtempWidth), (y - 10));
   
   //BUTTON KEY
   ctx.fillStyle = "white";
   ctx.font = "50px Arial";
-  ctx.fillText(key, x + 19, y + 53);
+  var KtempWidth = ctx.measureText(key).width / 2;
+  var KtempHeight = ctx.measureText(type).height / 2;
+  ctx.fillText(key, (midX - KtempWidth), (midY - KtempHeight));
 	
 }
 
@@ -399,10 +404,8 @@ function removeInput(){
 
 function keyDown(event){
 	cardArea.key = event.keyCode;
-	canInput = false;
 }
 
 function keyUp(event){
 	cardArea.key = false;
-	canInput = true;
 }

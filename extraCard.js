@@ -274,12 +274,12 @@ function bet(){
   	ctx.font = "50px Arial";
   	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 150);
 	
-	makeButton(canvas.width / 2 - 67.5, canvas.height / 2, 30, 30, "+1", "1");
-	makeButton(canvas.width / 2 - 32.5, canvas.height / 2, 30, 30, "+5", "2");
-	makeButton(canvas.width / 2 - 67.5, canvas.height / 2, 30, 30, "+10", "3");
-	makeButton(canvas.width / 2 - 67.5, canvas.height / 2, 30, 30, "+100", "4");
-	makeButton(canvas.width / 2 - 15, canvas.height / 2 + 50, 30, 30, "CLEAR", "C");
-	makeButton(canvas.width - 45, canvas.height - 45, 30, 30, "MENU", "M");
+	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");
+	makeButton(canvas.width / 2 - 72.5, canvas.height / 2, 70, 70, "+5", "2");
+	makeButton(canvas.width / 2 + 2.5, canvas.height / 2, 70, 70, "+10", "3");
+	makeButton(canvas.width / 2 + 77.5, canvas.height / 2, 70, 70, "+100", "4");
+	makeButton(canvas.width / 2 - 15, canvas.height / 2 + 50, 70, 70, "CLEAR", "C");
+	makeButton(canvas.width - 35, canvas.height - 45, 70, 70, "MENU", "M");
 
 
 	

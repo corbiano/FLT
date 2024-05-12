@@ -312,45 +312,52 @@ function bet(){
 
 
 	if(canInput){
-		if(cardArea.key && cardArea.key == 49 ){
+		if(cardArea.key && cardArea.key == 49){
 	
 		        betAmount += 1;
+			canInput = false;
 	        
 	    	}
 	
 	    	if(cardArea.key && cardArea.key == 50){
 	
 		        betAmount += 5;
+			canInput = false;
 	        
 	    	}
 	
 	    	if(cardArea.key && cardArea.key == 51){
 	
 	        	betAmount += 10;
+			canInput = false;
 	        
 	    	}
 		
 		if(cardArea.key && cardArea.key == 52){
 	
 	        	betAmount += 100;
+			canInput = false;
 	        
 	    	}
 	
 		if(cardArea.key && cardArea.key == 67){
 	
 	        	betAmount = 0;
+			canInput = false;
 	        
 	    	}
 	
 		if(cardArea.key && cardArea.key == 77){
 	
 	        	BJstart = false;
+			canInput = false;
 	        
 	    	}
 	
 		if(cardArea.key && cardArea.key == 13){
 	
 	        	betPlaced = true;
+			canInput = false;
 	        
 	    	}
 	
@@ -429,4 +436,5 @@ function keyDown(event){
 
 function keyUp(event){
 	cardArea.key = false;
+	canInput = true;
 }

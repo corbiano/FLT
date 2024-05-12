@@ -341,7 +341,16 @@ function drawCard(value, suit){
   	var ctx = canvas.getContext("2d");
 	
 	ctx.fillStyle = "white";
-  	ctx.fillRect(10 * (playerCards + 1), canvas.height - 10, 70, 110);
+  	ctx.fillRect(10, canvas.height - 10, 70, 110);
+
+	if(suit == "hearts" || suit == "diamonds"){
+		ctx.fillStyle = "red";
+	} else if(suit == "spades" || suit == "clubs"){ 
+		ctx.fillStyle = "black";
+	}
+	
+  	ctx.font = "40px Arial";
+  	ctx.fillText(value, 13, canvas.height - 20);
 	
 }
 	

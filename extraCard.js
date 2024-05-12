@@ -98,14 +98,14 @@ function casinoTitle(){
 }
 
 
-function casinoTitle(){
+function casinoMenu(){
 	var canvas = document.getElementById("cardArea");
 	var ctx = canvas.getContext("2d");
 	
 	ctx.globalCompositeOperation = 'destination-under'
 
     const img = new Image;
-    img.src = "https://corbiano.github.io/FLT/casinoTitle.jpg";
+    img.src = "https://corbiano.github.io/FLT/casinoMenu.jpg";
 	ctx.drawImage(img, 0, 0);
     //ctx.fillStyle = "black";
 	//ctx.fillRect(0, 0, canvas.width, canvas.height);

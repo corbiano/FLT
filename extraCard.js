@@ -378,8 +378,8 @@ function drawCard(value, suit, count){
 		ctx.fillStyle = "black";
 	}
 	
-  	ctx.font = "40px Arial";
-  	ctx.fillText(value, 13, canvas.height - 20);
+  	ctx.font = "20px Arial";
+  	ctx.fillText(value, 20 + ((count * 10) + (count * 70)) , canvas.height - 80);
 	
 }
 	

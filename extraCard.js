@@ -1,6 +1,10 @@
 var Deck = [];
 
 
+var titleBG = "https://corbiano.github.io/FLT/casinoTitle.jpg";
+var menuBG = "https://corbiano.github.io/FLT/casinoMenu.jpg";
+var gameBG = "https://corbiano.github.io/FLT/casinoGame.jpg";
+
 var gameOpen = false;
 var inputAdded = false;
 var titlePassed = false;
@@ -94,17 +98,8 @@ function updateCasino(){
 
 
 function casinoTitle(){
-	var canvas = document.getElementById("cardArea");
-	var ctx = canvas.getContext("2d");
 	
-	ctx.globalCompositeOperation = 'destination-under'
-
-    const img = new Image;
-    img.src = "https://corbiano.github.io/FLT/casinoTitle.jpg";
-	ctx.drawImage(img, 0, 0);
-    //ctx.fillStyle = "black";
-	//ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+    handleBackground(titleBG);
 
     if(cardArea.key && cardArea.key == 13){
 
@@ -115,19 +110,8 @@ function casinoTitle(){
 
 
 function casinoMenu(){
-	var canvas = document.getElementById("cardArea");
-	var ctx = canvas.getContext("2d");
-	
-	ctx.globalCompositeOperation = 'destination-under'
 
-    const img = new Image;
-    img.src = "https://corbiano.github.io/FLT/casinoMenu.jpg";
-	ctx.drawImage(img, 0, 0);
-    //ctx.fillStyle = "black";
-	//ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-
-
+    handleBackground(menuBG);
 
 
     if(cardArea.key && cardArea.key == 49){
@@ -164,16 +148,16 @@ function casinoMenu(){
 
 function blackJack(){
 
-	gameBackground();
+	handleBackground(gameBG);
 	createDeck();
 
 	if(!betPlaced){
 
-		bet();
+		//bet();
 		
 	} else {
 
-		dealBlackjack();
+		//dealBlackjack();
 		
 	}
 	
@@ -247,10 +231,16 @@ function closeCasino() {
 }
 
 
-function dealBlackjack(){
+function handleBackground(url){
 
+	var canvas = document.getElementById("cardArea");
+	var ctx = canvas.getContext("2d");
 	
+	ctx.globalCompositeOperation = 'destination-under'
 
+    	const img = new Image;
+    	img.src = url;
+	ctx.drawImage(img, 0, 0);
 
 	
 }

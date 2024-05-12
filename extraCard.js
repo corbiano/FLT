@@ -271,8 +271,9 @@ function bet(){
 
 	
 	ctx.fillStyle = "white";
-  	ctx.font = "50px Arial";
-  	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 150);
+  	ctx.font = "20px Arial";
+	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 30);
+  	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 70);
 	
 	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");
 	makeButton(canvas.width / 2 - 72.5, canvas.height / 2, 70, 70, "+5", "2");

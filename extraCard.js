@@ -105,7 +105,7 @@ function casinoTitle(){
 	ctx.globalCompositeOperation = 'destination-under'
 
     const img = new Image;
-    img.src = "https://corbiano.github.io/FLT/casinoBG.jpg";
+    img.src = "https://corbiano.github.io/FLT/casinoTitle.jpg";
 	ctx.drawImage(img, 0, 0);
     //ctx.fillStyle = "black";
 	//ctx.fillRect(0, 0, canvas.width, canvas.height);

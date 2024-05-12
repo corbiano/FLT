@@ -7,6 +7,11 @@ var betPlaced = false;
 
 var wallet = 0;
 
+var heartSymbol = "♥";
+var diamondSymbol = "♦";
+var clubSymbol = "♣";
+var spadeSymbol = "♠";
+
 
 var titleBG = "https://corbiano.github.io/FLT/casinoTitle.jpg";
 var menuBG = "https://corbiano.github.io/FLT/casinoMenu.jpg";
@@ -369,9 +374,14 @@ function drawCard(value, suit, count){
 	ctx.fillStyle = "white";
   	ctx.fillRect(10 + ((count * 10) + (count * 70)), canvas.height - 120, 70, 110);
 
-	if(suit == "hearts" || suit == "diamonds"){
+	if(suit == "hearts"){
 		ctx.fillStyle = "red";
-	} else if(suit == "spades" || suit == "clubs"){ 
+		
+	} else if(suit == "diamonds"){ 
+		ctx.fillStyle = "red";
+	} else if(suit == "spades"){ 
+		ctx.fillStyle = "black";
+	} else if(suit == "clubs"){ 
 		ctx.fillStyle = "black";
 	}
 	

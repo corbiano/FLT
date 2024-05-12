@@ -284,11 +284,11 @@ function bet(){
 
 	ctx.strokeStyle = "black";
 	ctx.beginPath();
-	ctx.roundRect((canvas.width / 2) - 55, 10, 110, 20, 5);
+	ctx.roundRect((canvas.width / 2) - 60, 10, 120, 30, 5);
 	ctx.stroke();
 	
 	ctx.beginPath();
-	ctx.roundRect(5, 5, 110, 20, 5);
+	ctx.roundRect(5, 10, 105, 30, 5);
 	ctx.stroke();
 
 	

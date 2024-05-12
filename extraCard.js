@@ -279,7 +279,7 @@ function bet(){
 	makeButton(canvas.width / 2 + 2.5, canvas.height / 2, 70, 70, "+10", "3");
 	makeButton(canvas.width / 2 + 77.5, canvas.height / 2, 70, 70, "+100", "4");
 	makeButton(canvas.width / 2 - 15, canvas.height / 2 + 50, 70, 70, "CLEAR", "C");
-	makeButton(canvas.width - 35, canvas.height - 45, 70, 70, "MENU", "M");
+	makeButton(canvas.width - 75, canvas.height - 75, 70, 70, "MENU", "M");
 
 
 	

@@ -16,6 +16,8 @@ var gameOpen = false;
 var inputAdded = false;
 var titlePassed = false;
 
+var canInput = true;
+
 var BJstart = false;
 var PKstart = false;
 
@@ -275,7 +277,7 @@ function bet(){
 	ctx.fillStyle = "white";
   	ctx.font = "20px Arial";
 	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 30);
-  	ctx.fillText("Wallet : " + String(betAmount), canvas.width / 2 - 50, 70);
+  	ctx.fillText("Wallet : " + String(betAmount), 10, 30);
 	
 	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");
 	makeButton(canvas.width / 2 - 72.5, canvas.height / 2, 70, 70, "+5", "2");
@@ -376,8 +378,10 @@ function removeInput(){
 
 function keyDown(event){
 	cardArea.key = event.keyCode;
+	canInput = false;
 }
 
 function keyUp(event){
 	cardArea.key = false;
+	canInput = true;
 }

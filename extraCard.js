@@ -135,7 +135,7 @@ function casinoTitle(){
 function casinoMenu(){
 
     handleBackground(menuBG);
-
+	
 
     if(cardArea.key && cardArea.key == 49){
 
@@ -180,6 +180,8 @@ function blackJack(){
 	} else {
 
 		//dealBlackjack();
+		//deck.dealPlayer();
+		drawCard();
 		
 	}
 	
@@ -277,7 +279,8 @@ function bet(){
 	ctx.fillStyle = "white";
   	ctx.font = "20px Arial";
 	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 30);
-  	ctx.fillText("Wallet : " + String(betAmount), 10, 30);
+  	ctx.fillText("Wallet : " + String(wallet), 10, 30);
+	ctx.fillText("Press Enter to place bet.", canvas.width / 2 - 50, canvas.height - 50);
 	
 	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");
 	makeButton(canvas.width / 2 - 72.5, canvas.height / 2, 70, 70, "+5", "2");
@@ -287,49 +290,58 @@ function bet(){
 	makeButton(canvas.width - 85, canvas.height - 85, 70, 70, "MENU", "M");
 
 
+	if(canInput){
+		if(cardArea.key && cardArea.key == 49 ){
 	
-	if(cardArea.key && cardArea.key == 49){
-
-	        betAmount += 1;
-        
-    	}
-
-    	if(cardArea.key && cardArea.key == 50){
-
-	        betAmount += 5;
-        
-    	}
-
-    	if(cardArea.key && cardArea.key == 51){
-
-        	betAmount += 10;
-        
-    	}
+		        betAmount += 1;
+	        
+	    	}
 	
-	if(cardArea.key && cardArea.key == 52){
-
-        	betAmount += 100;
-        
-    	}
-
-	if(cardArea.key && cardArea.key == 67){
-
-        	betAmount = 0;
-        
-    	}
-
-	if(cardArea.key && cardArea.key == 77){
-
-        	BJstart = false;
-        
-    	}
-
-	if(cardArea.key && cardArea.key == 13){
-
-        	betPlaced = true;
-        
-    	}
+	    	if(cardArea.key && cardArea.key == 50){
 	
+		        betAmount += 5;
+	        
+	    	}
+	
+	    	if(cardArea.key && cardArea.key == 51){
+	
+	        	betAmount += 10;
+	        
+	    	}
+		
+		if(cardArea.key && cardArea.key == 52){
+	
+	        	betAmount += 100;
+	        
+	    	}
+	
+		if(cardArea.key && cardArea.key == 67){
+	
+	        	betAmount = 0;
+	        
+	    	}
+	
+		if(cardArea.key && cardArea.key == 77){
+	
+	        	BJstart = false;
+	        
+	    	}
+	
+		if(cardArea.key && cardArea.key == 13){
+	
+	        	betPlaced = true;
+	        
+	    	}
+	
+	}
+}
+
+function drawCard(value, suit){
+	var canvas = document.getElementById("cardArea");
+  	var ctx = canvas.getContext("2d");
+	
+	ctx.fillStyle = "white";
+  	ctx.fillRect(10 * (playerCards + 1), canvas.height - 10, 70, 110);
 	
 }
 	

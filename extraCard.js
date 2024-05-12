@@ -380,7 +380,7 @@ function makeButton(x, y, w, h, type, key){
   ctx.fillStyle = "white";
   ctx.font = "50px Arial";
   var KtempWidth = ctx.measureText(key).width / 2;
-  var KtempHeight = ctx.measureText(type).height / 2;
+  var KtempHeight = ctx.measureText(key).height / 2;
   ctx.fillText(key, (midX - KtempWidth), (midY - KtempHeight));
 	
 }

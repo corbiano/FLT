@@ -182,7 +182,8 @@ function blackJack(){
 		
 		//dealBlackjack();
 		//deck.dealPlayer();
-		drawCard();
+		drawCard("A", "hearts");
+		drawCard("10", "clubs");
 		
 	}
 	
@@ -369,7 +370,7 @@ function drawCard(value, suit){
   	var ctx = canvas.getContext("2d");
 	
 	ctx.fillStyle = "white";
-  	ctx.fillRect(10, canvas.height - 10, 70, 110);
+  	ctx.fillRect(10, canvas.height - 120, 70, 110);
 
 	if(suit == "hearts" || suit == "diamonds"){
 		ctx.fillStyle = "red";

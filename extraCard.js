@@ -182,8 +182,8 @@ function blackJack(){
 		
 		//dealBlackjack();
 		//deck.dealPlayer();
-		drawCard("A", "hearts");
-		drawCard("10", "clubs");
+		drawCard("A", "hearts", 0);
+		drawCard("10", "clubs", 1);
 		
 	}
 	
@@ -365,12 +365,12 @@ function bet(){
 	}
 }
 
-function drawCard(value, suit){
+function drawCard(value, suit, count){
 	var canvas = document.getElementById("cardArea");
   	var ctx = canvas.getContext("2d");
 	
 	ctx.fillStyle = "white";
-  	ctx.fillRect(10, canvas.height - 120, 70, 110);
+  	ctx.fillRect(10 + ((count * 10) + (count * 70)), canvas.height - 120, 70, 110);
 
 	if(suit == "hearts" || suit == "diamonds"){
 		ctx.fillStyle = "red";

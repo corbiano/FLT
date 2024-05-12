@@ -19,7 +19,7 @@ var PKstart = false;
 
 $(`#Frontline_IconsTopDefault`).append(`
 <div class="IconDefault headertext">
-<i style="float:right; margin-top: 21px; margin-right: 10px;font-size:26px;" class="fa-sharp fa-solid fa-gamepad" id="gameButton" title="Reload" onclick="openCasino()"></i>
+<i style="float:right; margin-top: 21px; margin-right: 10px;font-size:26px;" class="fa-sharp fa-solid fa-coins" id="gameButton" title="Reload" onclick="openCasino()"></i>
 </div>
 `);
 

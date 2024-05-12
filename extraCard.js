@@ -284,11 +284,11 @@ function bet(){
 
 	ctx.strokeStyle = "black";
 	ctx.beginPath();
-	ctx.roundRect(canvas.width - 50, 10, 100, 50, 5);
+	ctx.roundRect((canvas.width / 2) - 55, 10, 110, 20, 5);
 	ctx.stroke();
 	
 	ctx.beginPath();
-	ctx.roundRect(10, 10, 100, 50, 5);
+	ctx.roundRect(5, 5, 110, 20, 5);
 	ctx.stroke();
 
 	
@@ -299,8 +299,8 @@ function bet(){
 	var tempBetWidth = ctx.measureText(tempBet).width / 2;
 	ctx.fillText(tempBet, (canvas.width / 2 - tempBetWidth), 30);
 
-	var tempInfo = "Press Enter to place bet.";
-	var tempInfoWidth = ctx.measureText(tempBet).width / 2;
+	var tempInfo = "Press Enter to place bet";
+	var tempInfoWidth = ctx.measureText(tempInfo).width / 2;
 	ctx.fillText(tempInfo, (canvas.width / 2 - tempInfoWidth), canvas.height - 20);
 	
 	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");

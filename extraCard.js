@@ -1,9 +1,14 @@
-var Deck = [];
+var cardsDealt = 0;
+var playerCards = 0;
+var dealerCards = 0;
+
+var betAmount = 0;
+var betPlaced = false;
 
 
 var titleBG = "https://corbiano.github.io/FLT/casinoTitle.jpg";
 var menuBG = "https://corbiano.github.io/FLT/casinoMenu.jpg";
-var gameBG = "https://corbiano.github.io/FLT/casinoGame.jpg";
+var gameBG = "https://corbiano.github.io/FLT/casinoBJ.jpg";
 
 var gameOpen = false;
 var inputAdded = false;
@@ -36,7 +41,25 @@ var cardArea = {
 	}
 }
 
+var deck = {
+    cards: new Array(52),
 
+    shuffle: function() {
+	console.log("shuffled");
+	    
+    },
+
+    dealPlayer: function() {
+	
+	playerCards += 1;
+	    
+    },
+    dealDealer: function() {
+	
+	dealerCards += 1;
+	    
+    }
+}
 
 
 function updateCasino(){
@@ -67,9 +90,6 @@ function updateCasino(){
     }
 
   }
-
-
-
 
   
 }
@@ -149,11 +169,10 @@ function casinoMenu(){
 function blackJack(){
 
 	handleBackground(gameBG);
-	createDeck();
 
 	if(!betPlaced){
 
-		//bet();
+		bet();
 		
 	} else {
 
@@ -211,13 +230,13 @@ function openCasino() {
 		`);
 		
 		gameOpen = true;
-        titlePassed = false;
+        	titlePassed = false;
 		cardArea.start();
 		cardArea.canvas.id = "cardArea";
-        $(`#cardArea`).css("margin", "auto");
+        	$(`#cardArea`).css("margin", "auto");
 		$(`#cardArea`).css("border-radius", "10px");
 		$(`#cardArea`).css("width", "100%");
-        addInput();
+        	addInput();
 	}
 }
 
@@ -242,6 +261,91 @@ function handleBackground(url){
     	img.src = url;
 	ctx.drawImage(img, 0, 0);
 
+}
+
+
+
+function bet(){
+	
+	var canvas = document.getElementById("gameArea");
+  	var ctx = canvas.getContext("2d");
+
+	
+	ctx.fillStyle = "white";
+  	ctx.font = "50px Arial";
+  	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50);
+	
+	makeButton(canvas.width / 2 - 67.5, canvas.height / 2, 30, 30, "+1", "1");
+	makeButton(canvas.width / 2 - 32.5, canvas.height / 2, 30, 30, "+5", "2");
+	makeButton(canvas.width / 2 - 67.5, canvas.height / 2, 30, 30, "+10", "3");
+	makeButton(canvas.width / 2 - 67.5, canvas.height / 2, 30, 30, "+100", "4");
+	makeButton(canvas.width / 2 - 15, canvas.height / 2 + 50, 30, 30, "CLEAR", "C");
+	makeButton(canvas.width - 45, canvas.height - 45, 30, 30, "MENU", "M");
+
+
+	
+	if(cardArea.key && cardArea.key == 49){
+
+	        betAmount += 1;
+        
+    	}
+
+    	if(cardArea.key && cardArea.key == 50){
+
+	        betAmount += 5;
+        
+    	}
+
+    	if(cardArea.key && cardArea.key == 51){
+
+        	betAmount += 10;
+        
+    	}
+	
+	if(cardArea.key && cardArea.key == 52){
+
+        	betAmount += 100;
+        
+    	}
+
+	if(cardArea.key && cardArea.key == 67){
+
+        	betAmount = 0;
+        
+    	}
+
+	if(cardArea.key && cardArea.key == 77){
+
+        	BJstart = false;
+        
+    	}
+	
+	
+}
+	
+
+function makeButton(x, y, w, h, type, key){
+
+  var canvas = document.getElementById("gameArea");
+  var ctx = canvas.getContext("2d");
+
+  //OUTER BUTTON
+  ctx.fillStyle = "white";
+  ctx.fillRect(x, y, w, h);
+  
+  //INNER BUTTON
+  ctx.fillStyle = "#2b2b2b";
+  ctx.fillRect(x + 3, y + 3, w - 6, h - 6);
+  
+  //BUTTON FUNCTION
+  ctx.fillStyle = "white";
+  ctx.font = "20px Arial";
+  ctx.fillText(type, x + 3, y - 10);
+  
+  //BUTTON KEY
+  ctx.fillStyle = "white";
+  ctx.font = "50px Arial";
+  ctx.fillText(key, x + 19, y + 53);
 	
 }
 

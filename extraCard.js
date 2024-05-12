@@ -269,8 +269,15 @@ function handleBackground(url){
 	ctx.drawImage(img, 0, 0);
 
 	if(BJstart){
+		ctx.strokeStyle = "black";
+		ctx.beginPath();
+		ctx.roundRect(5, 10, 105, 30, 5);
+		ctx.fillStyle = "black";
+		ctx.fill();
+		ctx.stroke();
+	
 		ctx.fillStyle = "white";
-	  	ctx.font = "20px Arial";
+		ctx.font = "20px Arial";
 		ctx.fillText("$" + String(wallet), 10, 30);
 	}
 
@@ -282,13 +289,6 @@ function bet(){
 	
 	var canvas = document.getElementById("cardArea");
   	var ctx = canvas.getContext("2d");
-
-	ctx.strokeStyle = "black";
-	ctx.beginPath();
-	ctx.roundRect(5, 10, 105, 30, 5);
-	ctx.fill();
-	ctx.stroke();
-
 	
 	ctx.fillStyle = "white";
   	ctx.font = "20px Arial";
@@ -376,7 +376,7 @@ function drawCard(value, suit, count){
 	}
 	
   	ctx.font = "bold 20px Arial";
-  	ctx.fillText(value, 20 + ((count * 10) + (count * 70)) , canvas.height - 100);
+  	ctx.fillText(value, 10 + ((count * 10) + (count * 70)) , canvas.height - 100);
 	
 }
 	

@@ -172,13 +172,14 @@ function casinoMenu(){
 function blackJack(){
 
 	handleBackground(gameBG);
+	
 
 	if(!betPlaced){
 
 		bet();
 		
 	} else {
-
+		
 		//dealBlackjack();
 		//deck.dealPlayer();
 		drawCard();
@@ -266,6 +267,12 @@ function handleBackground(url){
     	img.src = url;
 	ctx.drawImage(img, 0, 0);
 
+	if(BJstart){
+		ctx.fillStyle = "white";
+	  	ctx.font = "20px Arial";
+		ctx.fillText("Wallet : " + String(wallet), 10, 30);
+	}
+
 }
 
 
@@ -275,12 +282,26 @@ function bet(){
 	var canvas = document.getElementById("cardArea");
   	var ctx = canvas.getContext("2d");
 
+	ctx.strokeStyle = "black";
+	ctx.beginPath();
+	ctx.roundRect(canvas.width - 50, 10, 100, 50, 5);
+	ctx.stroke();
+	
+	ctx.beginPath();
+	ctx.roundRect(10, 10, 100, 50, 5);
+	ctx.stroke();
+
 	
 	ctx.fillStyle = "white";
   	ctx.font = "20px Arial";
-	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 30);
-  	ctx.fillText("Wallet : " + String(wallet), 10, 30);
-	ctx.fillText("Press Enter to place bet.", canvas.width / 2 - 80, canvas.height - 20);
+	
+	var tempBet = "Bet Amount: " + String(betAmount);
+	var tempBetWidth = ctx.measureText(tempBet).width / 2;
+	ctx.fillText(tempBet, (canvas.width / 2 - tempBetWidth), 30);
+
+	var tempInfo = "Press Enter to place bet.";
+	var tempInfoWidth = ctx.measureText(tempBet).width / 2;
+	ctx.fillText(tempInfo, (canvas.width / 2 - tempInfoWidth), canvas.height - 20);
 	
 	makeButton(canvas.width / 2 - 147.5, canvas.height / 2, 70, 70, "+1", "1");
 	makeButton(canvas.width / 2 - 72.5, canvas.height / 2, 70, 70, "+5", "2");

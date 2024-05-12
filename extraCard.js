@@ -1,6 +1,7 @@
 
 var gameOpen = false;
 var inputAdded = false;
+var titlePassed = false;
 
 var BJstart = false;
 var PKstart = false;
@@ -33,14 +34,16 @@ var cardArea = {
 
 
 
-
-
 function updateCasino(){
 
-  if (!BJstart && !PKstart){
+  if (!titlePassed){
 
-      casinoMenu();
+    casinoTitle();
     
+  } else {
+
+    casinoMenu();
+
   }
 
 
@@ -72,14 +75,79 @@ function updateCasino(){
 
 
 
-function casinoMenu(){
+function casinoTitle(){
 	var canvas = document.getElementById("cardArea");
 	var ctx = canvas.getContext("2d");
 	
 	ctx.globalCompositeOperation = 'destination-under'
 
-	ctx.drawImage(`url("corbiano.github.io/FLT/casinoBG.jpg")`, 0, 0);
+    const img = new Image;
+    img.src = "https://corbiano.github.io/FLT/casinoBG.jpg";
+	ctx.drawImage(img, 0, 0);
+    //ctx.fillStyle = "black";
+	//ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+
+
+
+    if(cardArea.key && cardArea.key == 13){
+
+        titlePassed = true;
+        
+    }
 }
+
+
+function casinoTitle(){
+	var canvas = document.getElementById("cardArea");
+	var ctx = canvas.getContext("2d");
+	
+	ctx.globalCompositeOperation = 'destination-under'
+
+    const img = new Image;
+    img.src = "https://corbiano.github.io/FLT/casinoBG.jpg";
+	ctx.drawImage(img, 0, 0);
+    //ctx.fillStyle = "black";
+	//ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+
+
+
+    if(cardArea.key && cardArea.key == 13){
+
+        console.log("eh");
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function openCasino() {
 	if(!gameOpen){
@@ -93,8 +161,13 @@ function openCasino() {
 		`);
 		
 		gameOpen = true;
+        titlePassed = false;
 		cardArea.start();
 		cardArea.canvas.id = "cardArea";
+        $(`#cardArea`).css("margin", "auto");
+		$(`#cardArea`).css("border-radius", "10px");
+		$(`#cardArea`).css("width", "100%");
+        addInput();
 	}
 }
 
@@ -102,6 +175,7 @@ function closeCasino() {
 	cardArea.stop();
 	BJstart = false;
 	PKstart = false;
+    titlePassed = false;
 	removeInput();
 	$(`#gameWindow`).remove();
 }
@@ -120,4 +194,12 @@ function removeInput(){
 	window.removeEventListener('keyup', keyUp, true)
   	inputAdded = false;
 
+}
+
+function keyDown(event){
+	cardArea.key = event.keyCode;
+}
+
+function keyUp(event){
+	cardArea.key = false;
 }

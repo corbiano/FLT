@@ -271,7 +271,7 @@ function handleBackground(url){
 	if(BJstart){
 		ctx.fillStyle = "white";
 	  	ctx.font = "20px Arial";
-		ctx.fillText("Wallet : " + String(wallet), 10, 30);
+		ctx.fillText("$" + String(wallet), 10, 30);
 	}
 
 }
@@ -378,8 +378,8 @@ function drawCard(value, suit, count){
 		ctx.fillStyle = "black";
 	}
 	
-  	ctx.font = "20px Arial";
-  	ctx.fillText(value, 20 + ((count * 10) + (count * 70)) , canvas.height - 80);
+  	ctx.font = "bold 20px Arial";
+  	ctx.fillText(value, 20 + ((count * 10) + (count * 70)) , canvas.height - 100);
 	
 }
 	

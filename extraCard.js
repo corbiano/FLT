@@ -90,7 +90,6 @@ function updateCasino(){
     }
 
   }
-
   
 }
 
@@ -244,7 +243,7 @@ function closeCasino() {
 	cardArea.stop();
 	BJstart = false;
 	PKstart = false;
-    titlePassed = false;
+    	titlePassed = false;
 	removeInput();
 	$(`#gameWindow`).remove();
 }
@@ -273,7 +272,7 @@ function bet(){
 	
 	ctx.fillStyle = "white";
   	ctx.font = "50px Arial";
-  	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50);
+  	ctx.fillText("Bet Amount: " + String(betAmount), canvas.width / 2 - 50, 150);
 	
 	makeButton(canvas.width / 2 - 67.5, canvas.height / 2, 30, 30, "+1", "1");
 	makeButton(canvas.width / 2 - 32.5, canvas.height / 2, 30, 30, "+5", "2");

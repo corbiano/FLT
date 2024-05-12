@@ -128,7 +128,7 @@ function component(width, height, color, x, y, type) {
 
 
 function beginSelectedGame(gameType) {
-	if(gameType == "Jump")	
+	if(gameType == "Jump"){
 		if(gameOpen){
 			highScore = Number(localStorage.getItem("highScore"));
 			wallet = Number(localStorage.getItem("currentDucks"));

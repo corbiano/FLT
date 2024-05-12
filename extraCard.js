@@ -267,7 +267,7 @@ function handleBackground(url){
 
 function bet(){
 	
-	var canvas = document.getElementById("gameArea");
+	var canvas = document.getElementById("cardArea");
   	var ctx = canvas.getContext("2d");
 
 	
@@ -326,7 +326,7 @@ function bet(){
 
 function makeButton(x, y, w, h, type, key){
 
-  var canvas = document.getElementById("gameArea");
+  var canvas = document.getElementById("cardArea");
   var ctx = canvas.getContext("2d");
 
   //OUTER BUTTON

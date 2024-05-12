@@ -154,7 +154,7 @@ function openCasino() {
 		//add game window
 		$(`.container-half`).first().append(`
 		<div class="container-left" id="gameWindow" style="background-image: linear-gradient(45deg, black, black);">
-		<div class="sectiontitle borderdark" id="gameTitle" style="background-color: rgb(133, 86, 114); border-bottom: none;">Game
+		<div class="sectiontitle borderdark" id="gameTitle" border-bottom: none;">Game
 		<button type="submit" class="templatebutton" onclick="closeCasino()">Close</button>
 		</div>
 		</div>

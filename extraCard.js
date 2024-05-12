@@ -20,7 +20,6 @@ var cardArea = {
 		this.canvas.height = 270;
 		this.context = this.canvas.getContext("2d");
 		$(`#gameWindow`).append(this.canvas);
-		$(`#gameWindow`).css("width", "100%");
 		this.interval = setInterval(updateCasino, 25);
 	},
 	clear : function() {

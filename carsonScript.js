@@ -1348,15 +1348,6 @@ The information in this section will be saved automatically and restored when lo
 	
     }
 
-    function handleBG(){
-	backgroundGif = !backgroundGif;
-	    
-	if(backgroundGif)
-	    $("body").css("background-image", `url("https://corbiano.github.io/FLT/space_template.gif")`);
-	else
-	    $("body").css("background-image", `linear-gradient(45deg, #121212, #121212)`);
-	
-    }
 
 
 	

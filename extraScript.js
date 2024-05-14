@@ -606,7 +606,7 @@ function failScreen() {
 	if(gameArea.key && gameArea.key == 82){
     failed = false;
     setStats(Score, wallet, job, wins);
-    resetGame("Jump");
+    resetGame();
   }
 
   if (gameArea.key && gameArea.key == 77){
